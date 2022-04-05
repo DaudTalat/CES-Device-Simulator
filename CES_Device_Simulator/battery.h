@@ -5,7 +5,8 @@
 class Battery
 {
 public:
-    Battery();
+    Battery(int);
+    int decrement(int);
 private:
     int powerLevel;
 };

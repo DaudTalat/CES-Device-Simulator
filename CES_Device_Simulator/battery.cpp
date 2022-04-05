@@ -1,6 +1,12 @@
 #include "battery.h"
 
-Battery::Battery()
+Battery::Battery(int n) : powerLevel(n)
 {
 
+}
+
+Battery::decrement(int n)
+{
+    powerLevel -= n;
+    return powerLevel;
 }
