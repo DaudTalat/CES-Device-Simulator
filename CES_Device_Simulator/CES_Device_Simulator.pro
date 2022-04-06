@@ -16,15 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    battery.cpp \
+    Battery.cpp \
+    Records.cpp \
+    Session.cpp \
     main.cpp \
-    mainwindow.cpp \
-    session.cpp
+    mainwindow.cpp
 
 HEADERS += \
-    battery.h \
-    mainwindow.h \
-    session.h
+    Battery.h \
+    Records.h \
+    Session.h \
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui
