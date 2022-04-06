@@ -1,4 +1,4 @@
-#include "battery.h"
+#include "Battery.h"
 
 Battery::Battery(int n) : powerLevel(n)
 {
