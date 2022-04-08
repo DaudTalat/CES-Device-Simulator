@@ -6,7 +6,7 @@ enum Type {MET, DELTA, THETA, ALPHA};
 class Session
 {
 public:
-    Session(int, int, Type);
+    Session(int = 0, int = 0, Type = MET);
     int changeIntensity(int);
     int incrementLength(int);
 private:

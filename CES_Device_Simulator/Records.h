@@ -10,6 +10,9 @@ class Records
 public:
     Records();
     void addSession(Session&);
+    void initializeRecords();
+    void getSessions(); //may need to change from void to something else
+
 private:
     Session* sessions;
     int size;

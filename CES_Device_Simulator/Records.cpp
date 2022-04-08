@@ -2,10 +2,10 @@
 
 Records::Records() : size(0)
 {
-    sessions = new Session[];
+    sessions = new Session[50];
 }
 
-Records::addSession(Session s)
+void Records::addSession(Session& s)
 {
     sessions[size++] = s;
 }
