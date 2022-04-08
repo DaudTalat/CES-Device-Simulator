@@ -6,6 +6,7 @@ class Battery
 {
 public:
     Battery(int);
+    int batteryPercentage = 100;
     int decrement(int);
 private:
     int powerLevel;
