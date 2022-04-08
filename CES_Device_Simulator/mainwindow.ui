@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>626</width>
-    <height>428</height>
+    <width>628</width>
+    <height>427</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="leftEar">
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
@@ -53,7 +53,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="rightEar">
          <property name="text">
           <string>R</string>
          </property>
@@ -170,34 +170,34 @@
       <rect>
        <x>30</x>
        <y>50</y>
-       <width>241</width>
+       <width>254</width>
        <height>31</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QRadioButton" name="radioButton_7">
+       <widget class="QRadioButton" name="alphaOption">
         <property name="text">
          <string>ALPHA</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_6">
+       <widget class="QRadioButton" name="thetaOption">
         <property name="text">
          <string>THETA</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_5">
+       <widget class="QRadioButton" name="deltaOption">
         <property name="text">
          <string>DELTA</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_4">
+       <widget class="QRadioButton" name="metOption">
         <property name="text">
          <string>MET</string>
         </property>
@@ -242,14 +242,14 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_8">
       <item>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="twentyOption">
         <property name="text">
          <string>20 minutes</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_2">
+       <widget class="QRadioButton" name="fortyFiveOption">
         <property name="text">
          <string>45 minutes</string>
         </property>
@@ -268,7 +268,7 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_9">
       <item>
-       <widget class="QRadioButton" name="radioButton_3">
+       <widget class="QRadioButton" name="customOption">
         <property name="text">
          <string>Custom</string>
         </property>
@@ -284,13 +284,13 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="spinBox_2"/>
+         <widget class="QSpinBox" name="minutesInput"/>
         </item>
        </layout>
       </item>
      </layout>
     </widget>
-    <widget class="QCheckBox" name="checkBox_3">
+    <widget class="QCheckBox" name="recordSession">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -391,7 +391,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>626</width>
+     <width>628</width>
      <height>22</height>
     </rect>
    </property>
