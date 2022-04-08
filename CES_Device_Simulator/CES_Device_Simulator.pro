@@ -24,6 +24,7 @@ SOURCES += \
 
 HEADERS += \
     Battery.h \
+    Defs.h \
     Records.h \
     Session.h \
     mainwindow.h
