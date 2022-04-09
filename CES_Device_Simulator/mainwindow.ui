@@ -84,7 +84,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QProgressBar" name="barIntensityBar">
+         <widget class="QProgressBar" name="barIntensity">
           <property name="value">
            <number>24</number>
           </property>
@@ -335,7 +335,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="batteryLevel">
+        <widget class="QProgressBar" name="barBatteryLevel">
          <property name="value">
           <number>24</number>
          </property>
@@ -373,13 +373,6 @@
       <widget class="QRadioButton" name="rbOkayConnection">
        <property name="text">
         <string>Okay</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="rbNoConnection">
-       <property name="text">
-        <string>No Connection</string>
        </property>
       </widget>
      </item>

@@ -4,8 +4,10 @@
 #include <QMainWindow>
 #include "Battery.h"
 #include "Session.h"
+#include "Defs.h"
+#include <QString>
 
-enum Connection {OKAY, NONE, EXCELLENT};
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,7 +26,7 @@ public:
     void changeIntensity(int);
     void turnOn();
     void turnOff();
-    bool testConnection();
+    bool testConnection(Connection,bool);
     bool stop = false;
 
 private:

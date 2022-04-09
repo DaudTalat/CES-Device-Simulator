@@ -38,63 +38,62 @@ public:
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label_3;
-    QPushButton *intensityUp;
-    QPushButton *intensityDown;
+    QPushButton *btnIntensityUp;
+    QPushButton *btnIntensityDown;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_6;
-    QProgressBar *intensityBar;
+    QProgressBar *barIntensity;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_3;
-    QRadioButton *alphaOption;
-    QRadioButton *thetaOption;
-    QRadioButton *deltaOption;
-    QRadioButton *metOption;
+    QRadioButton *rbAlphaOption;
+    QRadioButton *rbThetaOption;
+    QRadioButton *rbDeltaOption;
+    QRadioButton *rbMetOption;
     QLabel *label;
     QLabel *label_2;
-    QCheckBox *recordSession;
+    QCheckBox *ckRecordSession;
     QFrame *line;
     QFrame *line_2;
     QWidget *horizontalLayoutWidget_4;
     QHBoxLayout *horizontalLayout_6;
-    QPushButton *startSession;
-    QPushButton *endSession;
+    QPushButton *btnStartSession;
+    QPushButton *btnEndSession;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_8;
-    QRadioButton *twentyOption;
-    QRadioButton *fortyFiveOption;
+    QRadioButton *rbTwentyOption;
+    QRadioButton *rbFortyFiveOption;
     QHBoxLayout *horizontalLayout_10;
-    QRadioButton *customOption;
+    QRadioButton *rbCustomOption;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_8;
-    QSpinBox *minutesInput;
+    QSpinBox *spnMinutesInput;
     QWidget *verticalLayoutWidget_5;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_4;
-    QPushButton *powerOn;
-    QPushButton *powerOff;
+    QPushButton *btnPowerOn;
+    QPushButton *btnPowerOff;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_5;
-    QProgressBar *batteryLevel;
+    QProgressBar *barBatteryLevel;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_7;
     QLabel *label_11;
-    QRadioButton *ExcellentConnection;
-    QRadioButton *OkayConnection;
-    QRadioButton *noConnection;
+    QRadioButton *rbExcellentConnection;
+    QRadioButton *rbOkayConnection;
     QFrame *line_3;
     QLabel *label_12;
-    QCheckBox *leftEarDisconnected;
-    QCheckBox *rightEarDisconnected;
+    QCheckBox *ckLeftEarDisconnected;
+    QCheckBox *ckRightEarDisconnected;
     QFrame *line_4;
     QLabel *label_13;
     QHBoxLayout *horizontalLayout_7;
-    QLabel *leftEar;
-    QLabel *rightEar;
-    QLabel *shortPulse;
-    QLabel *dutyCycle;
-    QLabel *statusOutput;
+    QLabel *lbLeftEar;
+    QLabel *lbRightEar;
+    QLabel *lbShortPulse;
+    QLabel *lbDutyCycle;
+    QLabel *lbStatusOutput;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -124,15 +123,15 @@ public:
 
         horizontalLayout->addWidget(label_3);
 
-        intensityUp = new QPushButton(verticalLayoutWidget_3);
-        intensityUp->setObjectName(QString::fromUtf8("intensityUp"));
+        btnIntensityUp = new QPushButton(verticalLayoutWidget_3);
+        btnIntensityUp->setObjectName(QString::fromUtf8("btnIntensityUp"));
 
-        horizontalLayout->addWidget(intensityUp);
+        horizontalLayout->addWidget(btnIntensityUp);
 
-        intensityDown = new QPushButton(verticalLayoutWidget_3);
-        intensityDown->setObjectName(QString::fromUtf8("intensityDown"));
+        btnIntensityDown = new QPushButton(verticalLayoutWidget_3);
+        btnIntensityDown->setObjectName(QString::fromUtf8("btnIntensityDown"));
 
-        horizontalLayout->addWidget(intensityDown);
+        horizontalLayout->addWidget(btnIntensityDown);
 
 
         verticalLayout_3->addLayout(horizontalLayout);
@@ -144,11 +143,11 @@ public:
 
         horizontalLayout_5->addWidget(label_6);
 
-        intensityBar = new QProgressBar(verticalLayoutWidget_3);
-        intensityBar->setObjectName(QString::fromUtf8("intensityBar"));
-        intensityBar->setValue(24);
+        barIntensity = new QProgressBar(verticalLayoutWidget_3);
+        barIntensity->setObjectName(QString::fromUtf8("barIntensity"));
+        barIntensity->setValue(24);
 
-        horizontalLayout_5->addWidget(intensityBar);
+        horizontalLayout_5->addWidget(barIntensity);
 
 
         verticalLayout_3->addLayout(horizontalLayout_5);
@@ -159,26 +158,28 @@ public:
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        alphaOption = new QRadioButton(horizontalLayoutWidget);
-        alphaOption->setObjectName(QString::fromUtf8("alphaOption"));
+        rbAlphaOption = new QRadioButton(horizontalLayoutWidget);
+        rbAlphaOption->setObjectName(QString::fromUtf8("rbAlphaOption"));
 
-        horizontalLayout_3->addWidget(alphaOption);
+        horizontalLayout_3->addWidget(rbAlphaOption);
 
-        thetaOption = new QRadioButton(horizontalLayoutWidget);
-        thetaOption->setObjectName(QString::fromUtf8("thetaOption"));
+        rbThetaOption = new QRadioButton(horizontalLayoutWidget);
+        rbThetaOption->setObjectName(QString::fromUtf8("rbThetaOption"));
+        rbThetaOption->setChecked(true);
 
-        horizontalLayout_3->addWidget(thetaOption);
+        horizontalLayout_3->addWidget(rbThetaOption);
 
-        deltaOption = new QRadioButton(horizontalLayoutWidget);
-        deltaOption->setObjectName(QString::fromUtf8("deltaOption"));
-        deltaOption->setChecked(true);
+        rbDeltaOption = new QRadioButton(horizontalLayoutWidget);
+        rbDeltaOption->setObjectName(QString::fromUtf8("rbDeltaOption"));
+        rbDeltaOption->setChecked(false);
+        rbDeltaOption->setAutoExclusive(true);
 
-        horizontalLayout_3->addWidget(deltaOption);
+        horizontalLayout_3->addWidget(rbDeltaOption);
 
-        metOption = new QRadioButton(horizontalLayoutWidget);
-        metOption->setObjectName(QString::fromUtf8("metOption"));
+        rbMetOption = new QRadioButton(horizontalLayoutWidget);
+        rbMetOption->setObjectName(QString::fromUtf8("rbMetOption"));
 
-        horizontalLayout_3->addWidget(metOption);
+        horizontalLayout_3->addWidget(rbMetOption);
 
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
@@ -186,9 +187,9 @@ public:
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(30, 90, 129, 26));
-        recordSession = new QCheckBox(groupBox);
-        recordSession->setObjectName(QString::fromUtf8("recordSession"));
-        recordSession->setGeometry(QRect(30, 190, 110, 23));
+        ckRecordSession = new QCheckBox(groupBox);
+        ckRecordSession->setObjectName(QString::fromUtf8("ckRecordSession"));
+        ckRecordSession->setGeometry(QRect(30, 190, 110, 23));
         line = new QFrame(groupBox);
         line->setObjectName(QString::fromUtf8("line"));
         line->setGeometry(QRect(30, 80, 261, 16));
@@ -205,15 +206,15 @@ public:
         horizontalLayout_6 = new QHBoxLayout(horizontalLayoutWidget_4);
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        startSession = new QPushButton(horizontalLayoutWidget_4);
-        startSession->setObjectName(QString::fromUtf8("startSession"));
+        btnStartSession = new QPushButton(horizontalLayoutWidget_4);
+        btnStartSession->setObjectName(QString::fromUtf8("btnStartSession"));
 
-        horizontalLayout_6->addWidget(startSession);
+        horizontalLayout_6->addWidget(btnStartSession);
 
-        endSession = new QPushButton(horizontalLayoutWidget_4);
-        endSession->setObjectName(QString::fromUtf8("endSession"));
+        btnEndSession = new QPushButton(horizontalLayoutWidget_4);
+        btnEndSession->setObjectName(QString::fromUtf8("btnEndSession"));
 
-        horizontalLayout_6->addWidget(endSession);
+        horizontalLayout_6->addWidget(btnEndSession);
 
         verticalLayoutWidget = new QWidget(groupBox);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
@@ -223,25 +224,25 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        twentyOption = new QRadioButton(verticalLayoutWidget);
-        twentyOption->setObjectName(QString::fromUtf8("twentyOption"));
+        rbTwentyOption = new QRadioButton(verticalLayoutWidget);
+        rbTwentyOption->setObjectName(QString::fromUtf8("rbTwentyOption"));
 
-        horizontalLayout_8->addWidget(twentyOption);
+        horizontalLayout_8->addWidget(rbTwentyOption);
 
-        fortyFiveOption = new QRadioButton(verticalLayoutWidget);
-        fortyFiveOption->setObjectName(QString::fromUtf8("fortyFiveOption"));
+        rbFortyFiveOption = new QRadioButton(verticalLayoutWidget);
+        rbFortyFiveOption->setObjectName(QString::fromUtf8("rbFortyFiveOption"));
 
-        horizontalLayout_8->addWidget(fortyFiveOption);
+        horizontalLayout_8->addWidget(rbFortyFiveOption);
 
 
         verticalLayout->addLayout(horizontalLayout_8);
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        customOption = new QRadioButton(verticalLayoutWidget);
-        customOption->setObjectName(QString::fromUtf8("customOption"));
+        rbCustomOption = new QRadioButton(verticalLayoutWidget);
+        rbCustomOption->setObjectName(QString::fromUtf8("rbCustomOption"));
 
-        horizontalLayout_10->addWidget(customOption);
+        horizontalLayout_10->addWidget(rbCustomOption);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
@@ -250,10 +251,10 @@ public:
 
         horizontalLayout_9->addWidget(label_8);
 
-        minutesInput = new QSpinBox(verticalLayoutWidget);
-        minutesInput->setObjectName(QString::fromUtf8("minutesInput"));
+        spnMinutesInput = new QSpinBox(verticalLayoutWidget);
+        spnMinutesInput->setObjectName(QString::fromUtf8("spnMinutesInput"));
 
-        horizontalLayout_9->addWidget(minutesInput);
+        horizontalLayout_9->addWidget(spnMinutesInput);
 
 
         horizontalLayout_10->addLayout(horizontalLayout_9);
@@ -274,15 +275,15 @@ public:
 
         horizontalLayout_2->addWidget(label_4);
 
-        powerOn = new QPushButton(verticalLayoutWidget_5);
-        powerOn->setObjectName(QString::fromUtf8("powerOn"));
+        btnPowerOn = new QPushButton(verticalLayoutWidget_5);
+        btnPowerOn->setObjectName(QString::fromUtf8("btnPowerOn"));
 
-        horizontalLayout_2->addWidget(powerOn);
+        horizontalLayout_2->addWidget(btnPowerOn);
 
-        powerOff = new QPushButton(verticalLayoutWidget_5);
-        powerOff->setObjectName(QString::fromUtf8("powerOff"));
+        btnPowerOff = new QPushButton(verticalLayoutWidget_5);
+        btnPowerOff->setObjectName(QString::fromUtf8("btnPowerOff"));
 
-        horizontalLayout_2->addWidget(powerOff);
+        horizontalLayout_2->addWidget(btnPowerOff);
 
 
         verticalLayout_5->addLayout(horizontalLayout_2);
@@ -294,11 +295,11 @@ public:
 
         horizontalLayout_4->addWidget(label_5);
 
-        batteryLevel = new QProgressBar(verticalLayoutWidget_5);
-        batteryLevel->setObjectName(QString::fromUtf8("batteryLevel"));
-        batteryLevel->setValue(24);
+        barBatteryLevel = new QProgressBar(verticalLayoutWidget_5);
+        barBatteryLevel->setObjectName(QString::fromUtf8("barBatteryLevel"));
+        barBatteryLevel->setValue(24);
 
-        horizontalLayout_4->addWidget(batteryLevel);
+        horizontalLayout_4->addWidget(barBatteryLevel);
 
 
         verticalLayout_5->addLayout(horizontalLayout_4);
@@ -314,20 +315,15 @@ public:
 
         verticalLayout_7->addWidget(label_11);
 
-        ExcellentConnection = new QRadioButton(layoutWidget);
-        ExcellentConnection->setObjectName(QString::fromUtf8("ExcellentConnection"));
+        rbExcellentConnection = new QRadioButton(layoutWidget);
+        rbExcellentConnection->setObjectName(QString::fromUtf8("rbExcellentConnection"));
 
-        verticalLayout_7->addWidget(ExcellentConnection);
+        verticalLayout_7->addWidget(rbExcellentConnection);
 
-        OkayConnection = new QRadioButton(layoutWidget);
-        OkayConnection->setObjectName(QString::fromUtf8("OkayConnection"));
+        rbOkayConnection = new QRadioButton(layoutWidget);
+        rbOkayConnection->setObjectName(QString::fromUtf8("rbOkayConnection"));
 
-        verticalLayout_7->addWidget(OkayConnection);
-
-        noConnection = new QRadioButton(layoutWidget);
-        noConnection->setObjectName(QString::fromUtf8("noConnection"));
-
-        verticalLayout_7->addWidget(noConnection);
+        verticalLayout_7->addWidget(rbOkayConnection);
 
         line_3 = new QFrame(layoutWidget);
         line_3->setObjectName(QString::fromUtf8("line_3"));
@@ -341,15 +337,15 @@ public:
 
         verticalLayout_7->addWidget(label_12);
 
-        leftEarDisconnected = new QCheckBox(layoutWidget);
-        leftEarDisconnected->setObjectName(QString::fromUtf8("leftEarDisconnected"));
+        ckLeftEarDisconnected = new QCheckBox(layoutWidget);
+        ckLeftEarDisconnected->setObjectName(QString::fromUtf8("ckLeftEarDisconnected"));
 
-        verticalLayout_7->addWidget(leftEarDisconnected);
+        verticalLayout_7->addWidget(ckLeftEarDisconnected);
 
-        rightEarDisconnected = new QCheckBox(layoutWidget);
-        rightEarDisconnected->setObjectName(QString::fromUtf8("rightEarDisconnected"));
+        ckRightEarDisconnected = new QCheckBox(layoutWidget);
+        ckRightEarDisconnected->setObjectName(QString::fromUtf8("ckRightEarDisconnected"));
 
-        verticalLayout_7->addWidget(rightEarDisconnected);
+        verticalLayout_7->addWidget(ckRightEarDisconnected);
 
         line_4 = new QFrame(layoutWidget);
         line_4->setObjectName(QString::fromUtf8("line_4"));
@@ -365,36 +361,36 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        leftEar = new QLabel(layoutWidget);
-        leftEar->setObjectName(QString::fromUtf8("leftEar"));
-        leftEar->setAutoFillBackground(false);
-        leftEar->setAlignment(Qt::AlignCenter);
+        lbLeftEar = new QLabel(layoutWidget);
+        lbLeftEar->setObjectName(QString::fromUtf8("lbLeftEar"));
+        lbLeftEar->setAutoFillBackground(false);
+        lbLeftEar->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_7->addWidget(leftEar);
+        horizontalLayout_7->addWidget(lbLeftEar);
 
-        rightEar = new QLabel(layoutWidget);
-        rightEar->setObjectName(QString::fromUtf8("rightEar"));
-        rightEar->setAlignment(Qt::AlignCenter);
+        lbRightEar = new QLabel(layoutWidget);
+        lbRightEar->setObjectName(QString::fromUtf8("lbRightEar"));
+        lbRightEar->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_7->addWidget(rightEar);
+        horizontalLayout_7->addWidget(lbRightEar);
 
-        shortPulse = new QLabel(layoutWidget);
-        shortPulse->setObjectName(QString::fromUtf8("shortPulse"));
+        lbShortPulse = new QLabel(layoutWidget);
+        lbShortPulse->setObjectName(QString::fromUtf8("lbShortPulse"));
 
-        horizontalLayout_7->addWidget(shortPulse);
+        horizontalLayout_7->addWidget(lbShortPulse);
 
-        dutyCycle = new QLabel(layoutWidget);
-        dutyCycle->setObjectName(QString::fromUtf8("dutyCycle"));
+        lbDutyCycle = new QLabel(layoutWidget);
+        lbDutyCycle->setObjectName(QString::fromUtf8("lbDutyCycle"));
 
-        horizontalLayout_7->addWidget(dutyCycle);
+        horizontalLayout_7->addWidget(lbDutyCycle);
 
 
         verticalLayout_7->addLayout(horizontalLayout_7);
 
-        statusOutput = new QLabel(layoutWidget);
-        statusOutput->setObjectName(QString::fromUtf8("statusOutput"));
+        lbStatusOutput = new QLabel(layoutWidget);
+        lbStatusOutput->setObjectName(QString::fromUtf8("lbStatusOutput"));
 
-        verticalLayout_7->addWidget(statusOutput);
+        verticalLayout_7->addWidget(lbStatusOutput);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -416,39 +412,38 @@ public:
         label_7->setText(QString());
         groupBox->setTitle(QApplication::translate("MainWindow", "Session", nullptr));
         label_3->setText(QApplication::translate("MainWindow", "Intensity", nullptr));
-        intensityUp->setText(QApplication::translate("MainWindow", "Up", nullptr));
-        intensityDown->setText(QApplication::translate("MainWindow", "Down", nullptr));
+        btnIntensityUp->setText(QApplication::translate("MainWindow", "Up", nullptr));
+        btnIntensityDown->setText(QApplication::translate("MainWindow", "Down", nullptr));
         label_6->setText(QApplication::translate("MainWindow", "Intensity", nullptr));
-        alphaOption->setText(QApplication::translate("MainWindow", "ALPHA", nullptr));
-        thetaOption->setText(QApplication::translate("MainWindow", "THETA", nullptr));
-        deltaOption->setText(QApplication::translate("MainWindow", "DELTA", nullptr));
-        metOption->setText(QApplication::translate("MainWindow", "MET", nullptr));
+        rbAlphaOption->setText(QApplication::translate("MainWindow", "ALPHA", nullptr));
+        rbThetaOption->setText(QApplication::translate("MainWindow", "THETA", nullptr));
+        rbDeltaOption->setText(QApplication::translate("MainWindow", "DELTA", nullptr));
+        rbMetOption->setText(QApplication::translate("MainWindow", "MET", nullptr));
         label->setText(QApplication::translate("MainWindow", "Type", nullptr));
         label_2->setText(QApplication::translate("MainWindow", "Time", nullptr));
-        recordSession->setText(QApplication::translate("MainWindow", "Record Session", nullptr));
-        startSession->setText(QApplication::translate("MainWindow", "Start Session", nullptr));
-        endSession->setText(QApplication::translate("MainWindow", "End Session", nullptr));
-        twentyOption->setText(QApplication::translate("MainWindow", "20 minutes", nullptr));
-        fortyFiveOption->setText(QApplication::translate("MainWindow", "45 minutes", nullptr));
-        customOption->setText(QApplication::translate("MainWindow", "Custom", nullptr));
+        ckRecordSession->setText(QApplication::translate("MainWindow", "Record Session", nullptr));
+        btnStartSession->setText(QApplication::translate("MainWindow", "Start Session", nullptr));
+        btnEndSession->setText(QApplication::translate("MainWindow", "End Session", nullptr));
+        rbTwentyOption->setText(QApplication::translate("MainWindow", "20 minutes", nullptr));
+        rbFortyFiveOption->setText(QApplication::translate("MainWindow", "45 minutes", nullptr));
+        rbCustomOption->setText(QApplication::translate("MainWindow", "Custom", nullptr));
         label_8->setText(QApplication::translate("MainWindow", "minutes", nullptr));
         label_4->setText(QApplication::translate("MainWindow", "Power", nullptr));
-        powerOn->setText(QApplication::translate("MainWindow", "On", nullptr));
-        powerOff->setText(QApplication::translate("MainWindow", "Off", nullptr));
+        btnPowerOn->setText(QApplication::translate("MainWindow", "On", nullptr));
+        btnPowerOff->setText(QApplication::translate("MainWindow", "Off", nullptr));
         label_5->setText(QApplication::translate("MainWindow", "Battery   ", nullptr));
         label_11->setText(QApplication::translate("MainWindow", "Connection", nullptr));
-        ExcellentConnection->setText(QApplication::translate("MainWindow", "Excellent", nullptr));
-        OkayConnection->setText(QApplication::translate("MainWindow", "Okay", nullptr));
-        noConnection->setText(QApplication::translate("MainWindow", "No Connection", nullptr));
+        rbExcellentConnection->setText(QApplication::translate("MainWindow", "Excellent", nullptr));
+        rbOkayConnection->setText(QApplication::translate("MainWindow", "Okay", nullptr));
         label_12->setText(QApplication::translate("MainWindow", "Ear Connection", nullptr));
-        leftEarDisconnected->setText(QApplication::translate("MainWindow", "Left Ear Disconnected", nullptr));
-        rightEarDisconnected->setText(QApplication::translate("MainWindow", "Right Ear Disconnected", nullptr));
+        ckLeftEarDisconnected->setText(QApplication::translate("MainWindow", "Left Ear Disconnected", nullptr));
+        ckRightEarDisconnected->setText(QApplication::translate("MainWindow", "Right Ear Disconnected", nullptr));
         label_13->setText(QApplication::translate("MainWindow", "Status", nullptr));
-        leftEar->setText(QApplication::translate("MainWindow", "L", nullptr));
-        rightEar->setText(QApplication::translate("MainWindow", "R", nullptr));
-        shortPulse->setText(QApplication::translate("MainWindow", "Short Pulse", nullptr));
-        dutyCycle->setText(QApplication::translate("MainWindow", "Duty Cycle", nullptr));
-        statusOutput->setText(QApplication::translate("MainWindow", "Output: ", nullptr));
+        lbLeftEar->setText(QApplication::translate("MainWindow", "L", nullptr));
+        lbRightEar->setText(QApplication::translate("MainWindow", "R", nullptr));
+        lbShortPulse->setText(QApplication::translate("MainWindow", "Short Pulse", nullptr));
+        lbDutyCycle->setText(QApplication::translate("MainWindow", "Duty Cycle", nullptr));
+        lbStatusOutput->setText(QApplication::translate("MainWindow", "Output: ", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 #ifndef SESSION_H
 #define SESSION_H
 
-enum Type {MET, DELTA, THETA, ALPHA};
+#include "Defs.h"
 
 class Session
 {

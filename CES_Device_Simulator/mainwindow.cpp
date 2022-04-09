@@ -13,7 +13,7 @@ void MainWindow::runSession(){
 
     int intensity = ui->barIntensity->value();
 
-    bool record = ui->ckRecordSession();
+    bool record = ui->ckRecordSession->isChecked();
 
     Type type;
     if (ui->rbAlphaOption->isChecked()){
@@ -28,7 +28,7 @@ void MainWindow::runSession(){
 
     Connection connection;
 
-    if(ui->rbNoConnection->isChecked()){
+    if(ui->ckLeftEarDisconnected->isChecked() || ui->ckRightEarDisconnected){
         connection = NONE;
     }else if(ui->rbOkayConnection->isChecked()){
         connection = OKAY;
@@ -36,15 +36,41 @@ void MainWindow::runSession(){
         connection = EXCELLENT;
     }
 
-    bool leftEarDisconnected = ui->ckLeftEarDisconnected->isChecked();
-    bool rightEarDisconnected = ui->ckRightEarDisconnected->isChecked();
 
     //Test connection
+    testConnection(connection,false);
+    //do while loop to run through session
+
+    //
 
 
 
+}
 
+void MainWindow::endSession(){
+    stop = true;
+}
 
+bool MainWindow::testConnection(Connection connection, bool start){
+    if (start){
+        // change lables colors and
+
+    }
+    QString output;
+    if(connection == NONE){
+
+        if(connection == NONE){
+            endSession();
+            output  = "Output: Lost Connection";
+        }else if(connection == OKAY){
+            output = "Output: Okay Connection";
+        }else{
+            output = "Output: Excellent Connection";
+        }
+
+    }
+    ui->lbStatusOutput->setText(output);
+    return false;
 }
 
 MainWindow::~MainWindow()
