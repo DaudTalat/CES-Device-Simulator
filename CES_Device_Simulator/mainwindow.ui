@@ -429,19 +429,6 @@
       </widget>
      </item>
      <item>
-<<<<<<< HEAD
-=======
-      <widget class="QRadioButton" name="rbNoConnection">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>No Connection</string>
-       </property>
-      </widget>
-     </item>
-     <item>
->>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
       <widget class="Line" name="line_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
