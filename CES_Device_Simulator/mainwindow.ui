@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
-    <height>427</height>
+    <width>619</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,88 +27,17 @@
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_4">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>160</y>
-      <width>221</width>
-      <height>133</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_7">
-       <item>
-        <widget class="QLabel" name="leftEar">
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>L</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="rightEar">
-         <property name="text">
-          <string>R</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_7">
-       <item>
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string>Connection</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="ExcellentConnection">
-         <property name="text">
-          <string>Excellent</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="OkayConnection">
-         <property name="text">
-          <string>Okay</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="noConnection">
-         <property name="text">
-          <string>No Connection</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>30</y>
       <width>331</width>
-      <height>341</height>
+      <height>401</height>
      </rect>
     </property>
     <property name="title">
-     <string>Session Options</string>
+     <string>Session</string>
     </property>
     <widget class="QWidget" name="verticalLayoutWidget_3">
      <property name="geometry">
@@ -170,7 +99,7 @@
       <rect>
        <x>30</x>
        <y>50</y>
-       <width>254</width>
+       <width>261</width>
        <height>31</height>
       </rect>
      </property>
@@ -231,65 +160,6 @@
       <string>Time</string>
      </property>
     </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>259</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_8">
-      <item>
-       <widget class="QRadioButton" name="twentyOption">
-        <property name="text">
-         <string>20 minutes</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="fortyFiveOption">
-        <property name="text">
-         <string>45 minutes</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="horizontalLayoutWidget_3">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>150</y>
-       <width>261</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_9">
-      <item>
-       <widget class="QRadioButton" name="customOption">
-        <property name="text">
-         <string>Custom</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_10">
-        <item>
-         <widget class="QLabel" name="label_8">
-          <property name="text">
-           <string>minutes</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="minutesInput"/>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
     <widget class="QCheckBox" name="recordSession">
      <property name="geometry">
       <rect>
@@ -303,14 +173,121 @@
       <string>Record Session</string>
      </property>
     </widget>
+    <widget class="Line" name="line">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>261</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>210</y>
+       <width>261</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>340</y>
+       <width>261</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QPushButton" name="startSession">
+        <property name="text">
+         <string>Start Session</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="endSession">
+        <property name="text">
+         <string>End Session</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>261</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <widget class="QRadioButton" name="twentyOption">
+          <property name="text">
+           <string>20 minutes</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="fortyFiveOption">
+          <property name="text">
+           <string>45 minutes</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QRadioButton" name="customOption">
+          <property name="text">
+           <string>Custom</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>minutes</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSpinBox" name="minutesInput"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="verticalLayoutWidget_5">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>370</x>
       <y>50</y>
       <width>221</width>
-      <height>101</height>
+      <height>62</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -359,31 +336,135 @@
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="endSession">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>350</y>
-      <width>151</width>
-      <height>25</height>
+      <x>370</x>
+      <y>120</y>
+      <width>219</width>
+      <height>311</height>
      </rect>
     </property>
-    <property name="text">
-     <string>End Session</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="startSession">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>320</y>
-      <width>151</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start Session</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Connection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="ExcellentConnection">
+       <property name="text">
+        <string>Excellent</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="OkayConnection">
+       <property name="text">
+        <string>Okay</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="noConnection">
+       <property name="text">
+        <string>No Connection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>Ear Connection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="leftEarDisconnected">
+       <property name="text">
+        <string>Left Ear Disconnected</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="rightEarDisconnected">
+       <property name="text">
+        <string>Right Ear Disconnected</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_13">
+       <property name="text">
+        <string>Status</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <widget class="QLabel" name="leftEar">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>L</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="rightEar">
+         <property name="text">
+          <string>R</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="shortPulse">
+         <property name="text">
+          <string>Short Pulse</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="dutyCycle">
+         <property name="text">
+          <string>Duty Cycle</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="statusOutput">
+       <property name="text">
+        <string>Output: </string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -391,7 +472,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>628</width>
+     <width>619</width>
      <height>22</height>
     </rect>
    </property>
