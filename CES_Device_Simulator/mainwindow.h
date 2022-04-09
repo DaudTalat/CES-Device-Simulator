@@ -4,8 +4,7 @@
 #include <QMainWindow>
 #include "Battery.h"
 #include "Session.h"
-
-enum Connection {OKAY, NONE, EXCELLENT};
+#include "Defs.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -34,6 +33,8 @@ private:
     Session currentSession;
     Session* sessions = new Session[50];
 
-
+private slots:
+    void powerOn();
+    void powerOff();
 };
 #endif // MAINWINDOW_H
