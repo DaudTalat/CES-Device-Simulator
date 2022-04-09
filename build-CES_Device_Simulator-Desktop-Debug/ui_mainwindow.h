@@ -77,7 +77,7 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_5;
     QProgressBar *batteryLevel;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_7;
     QLabel *label_11;
     QRadioButton *ExcellentConnection;
@@ -171,6 +171,7 @@ public:
 
         deltaOption = new QRadioButton(horizontalLayoutWidget);
         deltaOption->setObjectName(QString::fromUtf8("deltaOption"));
+        deltaOption->setChecked(true);
 
         horizontalLayout_3->addWidget(deltaOption);
 
@@ -302,87 +303,87 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_4);
 
-        widget = new QWidget(centralwidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(370, 120, 219, 311));
-        verticalLayout_7 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(370, 120, 219, 311));
+        verticalLayout_7 = new QVBoxLayout(layoutWidget);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_11 = new QLabel(widget);
+        label_11 = new QLabel(layoutWidget);
         label_11->setObjectName(QString::fromUtf8("label_11"));
 
         verticalLayout_7->addWidget(label_11);
 
-        ExcellentConnection = new QRadioButton(widget);
+        ExcellentConnection = new QRadioButton(layoutWidget);
         ExcellentConnection->setObjectName(QString::fromUtf8("ExcellentConnection"));
 
         verticalLayout_7->addWidget(ExcellentConnection);
 
-        OkayConnection = new QRadioButton(widget);
+        OkayConnection = new QRadioButton(layoutWidget);
         OkayConnection->setObjectName(QString::fromUtf8("OkayConnection"));
 
         verticalLayout_7->addWidget(OkayConnection);
 
-        noConnection = new QRadioButton(widget);
+        noConnection = new QRadioButton(layoutWidget);
         noConnection->setObjectName(QString::fromUtf8("noConnection"));
 
         verticalLayout_7->addWidget(noConnection);
 
-        line_3 = new QFrame(widget);
+        line_3 = new QFrame(layoutWidget);
         line_3->setObjectName(QString::fromUtf8("line_3"));
         line_3->setFrameShape(QFrame::HLine);
         line_3->setFrameShadow(QFrame::Sunken);
 
         verticalLayout_7->addWidget(line_3);
 
-        label_12 = new QLabel(widget);
+        label_12 = new QLabel(layoutWidget);
         label_12->setObjectName(QString::fromUtf8("label_12"));
 
         verticalLayout_7->addWidget(label_12);
 
-        leftEarDisconnected = new QCheckBox(widget);
+        leftEarDisconnected = new QCheckBox(layoutWidget);
         leftEarDisconnected->setObjectName(QString::fromUtf8("leftEarDisconnected"));
 
         verticalLayout_7->addWidget(leftEarDisconnected);
 
-        rightEarDisconnected = new QCheckBox(widget);
+        rightEarDisconnected = new QCheckBox(layoutWidget);
         rightEarDisconnected->setObjectName(QString::fromUtf8("rightEarDisconnected"));
 
         verticalLayout_7->addWidget(rightEarDisconnected);
 
-        line_4 = new QFrame(widget);
+        line_4 = new QFrame(layoutWidget);
         line_4->setObjectName(QString::fromUtf8("line_4"));
         line_4->setFrameShape(QFrame::HLine);
         line_4->setFrameShadow(QFrame::Sunken);
 
         verticalLayout_7->addWidget(line_4);
 
-        label_13 = new QLabel(widget);
+        label_13 = new QLabel(layoutWidget);
         label_13->setObjectName(QString::fromUtf8("label_13"));
 
         verticalLayout_7->addWidget(label_13);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        leftEar = new QLabel(widget);
+        leftEar = new QLabel(layoutWidget);
         leftEar->setObjectName(QString::fromUtf8("leftEar"));
         leftEar->setAutoFillBackground(false);
         leftEar->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_7->addWidget(leftEar);
 
-        rightEar = new QLabel(widget);
+        rightEar = new QLabel(layoutWidget);
         rightEar->setObjectName(QString::fromUtf8("rightEar"));
         rightEar->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_7->addWidget(rightEar);
 
-        shortPulse = new QLabel(widget);
+        shortPulse = new QLabel(layoutWidget);
         shortPulse->setObjectName(QString::fromUtf8("shortPulse"));
 
         horizontalLayout_7->addWidget(shortPulse);
 
-        dutyCycle = new QLabel(widget);
+        dutyCycle = new QLabel(layoutWidget);
         dutyCycle->setObjectName(QString::fromUtf8("dutyCycle"));
 
         horizontalLayout_7->addWidget(dutyCycle);
@@ -390,7 +391,7 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_7);
 
-        statusOutput = new QLabel(widget);
+        statusOutput = new QLabel(layoutWidget);
         statusOutput->setObjectName(QString::fromUtf8("statusOutput"));
 
         verticalLayout_7->addWidget(statusOutput);

@@ -59,14 +59,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="intensityUp">
+         <widget class="QPushButton" name="btnIntensityUp">
           <property name="text">
            <string>Up</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="intensityDown">
+         <widget class="QPushButton" name="btnIntensityDown">
           <property name="text">
            <string>Down</string>
           </property>
@@ -84,7 +84,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QProgressBar" name="intensityBar">
+         <widget class="QProgressBar" name="barIntensityBar">
           <property name="value">
            <number>24</number>
           </property>
@@ -105,28 +105,37 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QRadioButton" name="alphaOption">
+       <widget class="QRadioButton" name="rbAlphaOption">
         <property name="text">
          <string>ALPHA</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="thetaOption">
+       <widget class="QRadioButton" name="rbThetaOption">
         <property name="text">
          <string>THETA</string>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="deltaOption">
-        <property name="text">
-         <string>DELTA</string>
+        <property name="checked">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="metOption">
+       <widget class="QRadioButton" name="rbDeltaOption">
+        <property name="text">
+         <string>DELTA</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbMetOption">
         <property name="text">
          <string>MET</string>
         </property>
@@ -160,7 +169,7 @@
       <string>Time</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="recordSession">
+    <widget class="QCheckBox" name="ckRecordSession">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -210,14 +219,14 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_6">
       <item>
-       <widget class="QPushButton" name="startSession">
+       <widget class="QPushButton" name="btnStartSession">
         <property name="text">
          <string>Start Session</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="endSession">
+       <widget class="QPushButton" name="btnEndSession">
         <property name="text">
          <string>End Session</string>
         </property>
@@ -238,14 +247,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
-         <widget class="QRadioButton" name="twentyOption">
+         <widget class="QRadioButton" name="rbTwentyOption">
           <property name="text">
            <string>20 minutes</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="fortyFiveOption">
+         <widget class="QRadioButton" name="rbFortyFiveOption">
           <property name="text">
            <string>45 minutes</string>
           </property>
@@ -256,7 +265,7 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
-         <widget class="QRadioButton" name="customOption">
+         <widget class="QRadioButton" name="rbCustomOption">
           <property name="text">
            <string>Custom</string>
           </property>
@@ -272,7 +281,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="minutesInput"/>
+           <widget class="QSpinBox" name="spnMinutesInput"/>
           </item>
          </layout>
         </item>
@@ -301,14 +310,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="powerOn">
+        <widget class="QPushButton" name="btnPowerOn">
          <property name="text">
           <string>On</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="powerOff">
+        <widget class="QPushButton" name="btnPowerOff">
          <property name="text">
           <string>Off</string>
          </property>
@@ -336,7 +345,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -354,21 +363,21 @@
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="ExcellentConnection">
+      <widget class="QRadioButton" name="rbExcellentConnection">
        <property name="text">
         <string>Excellent</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="OkayConnection">
+      <widget class="QRadioButton" name="rbOkayConnection">
        <property name="text">
         <string>Okay</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="noConnection">
+      <widget class="QRadioButton" name="rbNoConnection">
        <property name="text">
         <string>No Connection</string>
        </property>
@@ -389,14 +398,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="leftEarDisconnected">
+      <widget class="QCheckBox" name="ckLeftEarDisconnected">
        <property name="text">
         <string>Left Ear Disconnected</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="rightEarDisconnected">
+      <widget class="QCheckBox" name="ckRightEarDisconnected">
        <property name="text">
         <string>Right Ear Disconnected</string>
        </property>
@@ -419,7 +428,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
-        <widget class="QLabel" name="leftEar">
+        <widget class="QLabel" name="lbLeftEar">
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
@@ -432,7 +441,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="rightEar">
+        <widget class="QLabel" name="lbRightEar">
          <property name="text">
           <string>R</string>
          </property>
@@ -442,14 +451,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="shortPulse">
+        <widget class="QLabel" name="lbShortPulse">
          <property name="text">
           <string>Short Pulse</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="dutyCycle">
+        <widget class="QLabel" name="lbDutyCycle">
          <property name="text">
           <string>Duty Cycle</string>
          </property>
@@ -458,7 +467,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QLabel" name="statusOutput">
+      <widget class="QLabel" name="lbStatusOutput">
        <property name="text">
         <string>Output: </string>
        </property>

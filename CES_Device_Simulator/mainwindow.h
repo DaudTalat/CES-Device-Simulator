@@ -5,6 +5,7 @@
 #include "Battery.h"
 #include "Session.h"
 
+enum Connection {OKAY, NONE, EXCELLENT};
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,6 +25,7 @@ public:
     void turnOn();
     void turnOff();
     bool testConnection();
+    bool stop = false;
 
 private:
     Ui::MainWindow *ui;

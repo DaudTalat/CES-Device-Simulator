@@ -10,13 +10,41 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 void MainWindow::runSession(){
-    //
-    // get intensity
-    // check if recorded
-    // get type
-    // get and check intensity
-    // get connection
-    // get // ear connection
+
+    int intensity = ui->barIntensity->value();
+
+    bool record = ui->ckRecordSession();
+
+    Type type;
+    if (ui->rbAlphaOption->isChecked()){
+        type = ALPHA;
+    }else if(ui->rbThetaOption->isChecked()){
+        type = THETA;
+    }else if(ui->rbDeltaOption->isChecked()){
+        type = DELTA;
+    }else if(ui->rbMetOption->isChecked()){
+        type = MET;
+    }
+
+    Connection connection;
+
+    if(ui->rbNoConnection->isChecked()){
+        connection = NONE;
+    }else if(ui->rbOkayConnection->isChecked()){
+        connection = OKAY;
+    }else if(ui->rbExcellentConnection->isChecked()){
+        connection = EXCELLENT;
+    }
+
+    bool leftEarDisconnected = ui->ckLeftEarDisconnected->isChecked();
+    bool rightEarDisconnected = ui->ckRightEarDisconnected->isChecked();
+
+    //Test connection
+
+
+
+
+
 }
 
 MainWindow::~MainWindow()
