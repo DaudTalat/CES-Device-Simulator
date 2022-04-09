@@ -1,11 +1,20 @@
 #include "Records.h"
 
-Records::Records() : size(0)
-{
-    sessions = new Session[50];
-}
 
-void Records::addSession(Session& s)
+Records::Records()
+{}
+
+void Records::addSession(Session* s)
 {
-    sessions[size++] = s;
+    QFile file("tmp.txt");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
+    {
+        qInfo() << "Write Failed.";
+    }
+
+    QTextStream stream(&file);
+
+    stream << "Session Length: " << s->getLength() << ", Session Intensity: " << s->getIntensity() << ", Session Type: " << s->getType() <<"\n";
+
+    file.close();
 }

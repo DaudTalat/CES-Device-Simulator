@@ -9,6 +9,9 @@ public:
     Session(int = 0, int = 0, Type = MET);
     int changeIntensity(int);
     int incrementLength(int);
+    int getLength();
+    int getIntensity();
+    Type getType();
 private:
     int initlength;
     int length;

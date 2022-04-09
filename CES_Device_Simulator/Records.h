@@ -3,19 +3,18 @@
 
 #include "Session.h"
 #include "Battery.h"
-
+#include <QCoreApplication>
+#include <QFile>
+#include <QTextStream>
+#include <QDebug>
 
 class Records
 {
 public:
     Records();
-    void addSession(Session&);
-    void initializeRecords();
+    void addSession(Session *);
     void getSessions(); //may need to change from void to something else
 
-private:
-    Session* sessions;
-    int size;
 };
 
 #endif // RECORDS_H
