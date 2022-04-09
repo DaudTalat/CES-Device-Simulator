@@ -42,7 +42,11 @@ public:
     QPushButton *btnIntensityDown;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_6;
+<<<<<<< HEAD
     QProgressBar *barIntensity;
+=======
+    QProgressBar *barIntensityBar;
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_3;
     QRadioButton *rbAlphaOption;
@@ -82,6 +86,10 @@ public:
     QLabel *label_11;
     QRadioButton *rbExcellentConnection;
     QRadioButton *rbOkayConnection;
+<<<<<<< HEAD
+=======
+    QRadioButton *rbNoConnection;
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
     QFrame *line_3;
     QLabel *label_12;
     QCheckBox *ckLeftEarDisconnected;
@@ -125,11 +133,19 @@ public:
 
         btnIntensityUp = new QPushButton(verticalLayoutWidget_3);
         btnIntensityUp->setObjectName(QString::fromUtf8("btnIntensityUp"));
+<<<<<<< HEAD
+=======
+        btnIntensityUp->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout->addWidget(btnIntensityUp);
 
         btnIntensityDown = new QPushButton(verticalLayoutWidget_3);
         btnIntensityDown->setObjectName(QString::fromUtf8("btnIntensityDown"));
+<<<<<<< HEAD
+=======
+        btnIntensityDown->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout->addWidget(btnIntensityDown);
 
@@ -143,11 +159,19 @@ public:
 
         horizontalLayout_5->addWidget(label_6);
 
+<<<<<<< HEAD
         barIntensity = new QProgressBar(verticalLayoutWidget_3);
         barIntensity->setObjectName(QString::fromUtf8("barIntensity"));
         barIntensity->setValue(24);
 
         horizontalLayout_5->addWidget(barIntensity);
+=======
+        barIntensityBar = new QProgressBar(verticalLayoutWidget_3);
+        barIntensityBar->setObjectName(QString::fromUtf8("barIntensityBar"));
+        barIntensityBar->setValue(24);
+
+        horizontalLayout_5->addWidget(barIntensityBar);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
 
         verticalLayout_3->addLayout(horizontalLayout_5);
@@ -160,17 +184,29 @@ public:
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         rbAlphaOption = new QRadioButton(horizontalLayoutWidget);
         rbAlphaOption->setObjectName(QString::fromUtf8("rbAlphaOption"));
+<<<<<<< HEAD
+=======
+        rbAlphaOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_3->addWidget(rbAlphaOption);
 
         rbThetaOption = new QRadioButton(horizontalLayoutWidget);
         rbThetaOption->setObjectName(QString::fromUtf8("rbThetaOption"));
+<<<<<<< HEAD
+=======
+        rbThetaOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
         rbThetaOption->setChecked(true);
 
         horizontalLayout_3->addWidget(rbThetaOption);
 
         rbDeltaOption = new QRadioButton(horizontalLayoutWidget);
         rbDeltaOption->setObjectName(QString::fromUtf8("rbDeltaOption"));
+<<<<<<< HEAD
+=======
+        rbDeltaOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
         rbDeltaOption->setChecked(false);
         rbDeltaOption->setAutoExclusive(true);
 
@@ -178,6 +214,10 @@ public:
 
         rbMetOption = new QRadioButton(horizontalLayoutWidget);
         rbMetOption->setObjectName(QString::fromUtf8("rbMetOption"));
+<<<<<<< HEAD
+=======
+        rbMetOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_3->addWidget(rbMetOption);
 
@@ -189,6 +229,10 @@ public:
         label_2->setGeometry(QRect(30, 90, 129, 26));
         ckRecordSession = new QCheckBox(groupBox);
         ckRecordSession->setObjectName(QString::fromUtf8("ckRecordSession"));
+<<<<<<< HEAD
+=======
+        ckRecordSession->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
         ckRecordSession->setGeometry(QRect(30, 190, 110, 23));
         line = new QFrame(groupBox);
         line->setObjectName(QString::fromUtf8("line"));
@@ -208,11 +252,19 @@ public:
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
         btnStartSession = new QPushButton(horizontalLayoutWidget_4);
         btnStartSession->setObjectName(QString::fromUtf8("btnStartSession"));
+<<<<<<< HEAD
+=======
+        btnStartSession->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_6->addWidget(btnStartSession);
 
         btnEndSession = new QPushButton(horizontalLayoutWidget_4);
         btnEndSession->setObjectName(QString::fromUtf8("btnEndSession"));
+<<<<<<< HEAD
+=======
+        btnEndSession->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_6->addWidget(btnEndSession);
 
@@ -226,11 +278,19 @@ public:
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         rbTwentyOption = new QRadioButton(verticalLayoutWidget);
         rbTwentyOption->setObjectName(QString::fromUtf8("rbTwentyOption"));
+<<<<<<< HEAD
+=======
+        rbTwentyOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_8->addWidget(rbTwentyOption);
 
         rbFortyFiveOption = new QRadioButton(verticalLayoutWidget);
         rbFortyFiveOption->setObjectName(QString::fromUtf8("rbFortyFiveOption"));
+<<<<<<< HEAD
+=======
+        rbFortyFiveOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_8->addWidget(rbFortyFiveOption);
 
@@ -241,6 +301,10 @@ public:
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
         rbCustomOption = new QRadioButton(verticalLayoutWidget);
         rbCustomOption->setObjectName(QString::fromUtf8("rbCustomOption"));
+<<<<<<< HEAD
+=======
+        rbCustomOption->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_10->addWidget(rbCustomOption);
 
@@ -253,6 +317,10 @@ public:
 
         spnMinutesInput = new QSpinBox(verticalLayoutWidget);
         spnMinutesInput->setObjectName(QString::fromUtf8("spnMinutesInput"));
+<<<<<<< HEAD
+=======
+        spnMinutesInput->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_9->addWidget(spnMinutesInput);
 
@@ -277,11 +345,19 @@ public:
 
         btnPowerOn = new QPushButton(verticalLayoutWidget_5);
         btnPowerOn->setObjectName(QString::fromUtf8("btnPowerOn"));
+<<<<<<< HEAD
+=======
+        btnPowerOn->setEnabled(true);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_2->addWidget(btnPowerOn);
 
         btnPowerOff = new QPushButton(verticalLayoutWidget_5);
         btnPowerOff->setObjectName(QString::fromUtf8("btnPowerOff"));
+<<<<<<< HEAD
+=======
+        btnPowerOff->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         horizontalLayout_2->addWidget(btnPowerOff);
 
@@ -306,7 +382,7 @@ public:
 
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(370, 120, 219, 311));
+        layoutWidget->setGeometry(QRect(370, 120, 219, 396));
         verticalLayout_7 = new QVBoxLayout(layoutWidget);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -317,13 +393,29 @@ public:
 
         rbExcellentConnection = new QRadioButton(layoutWidget);
         rbExcellentConnection->setObjectName(QString::fromUtf8("rbExcellentConnection"));
+<<<<<<< HEAD
+=======
+        rbExcellentConnection->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         verticalLayout_7->addWidget(rbExcellentConnection);
 
         rbOkayConnection = new QRadioButton(layoutWidget);
         rbOkayConnection->setObjectName(QString::fromUtf8("rbOkayConnection"));
+<<<<<<< HEAD
 
         verticalLayout_7->addWidget(rbOkayConnection);
+=======
+        rbOkayConnection->setEnabled(false);
+
+        verticalLayout_7->addWidget(rbOkayConnection);
+
+        rbNoConnection = new QRadioButton(layoutWidget);
+        rbNoConnection->setObjectName(QString::fromUtf8("rbNoConnection"));
+        rbNoConnection->setEnabled(false);
+
+        verticalLayout_7->addWidget(rbNoConnection);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         line_3 = new QFrame(layoutWidget);
         line_3->setObjectName(QString::fromUtf8("line_3"));
@@ -339,11 +431,19 @@ public:
 
         ckLeftEarDisconnected = new QCheckBox(layoutWidget);
         ckLeftEarDisconnected->setObjectName(QString::fromUtf8("ckLeftEarDisconnected"));
+<<<<<<< HEAD
+=======
+        ckLeftEarDisconnected->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         verticalLayout_7->addWidget(ckLeftEarDisconnected);
 
         ckRightEarDisconnected = new QCheckBox(layoutWidget);
         ckRightEarDisconnected->setObjectName(QString::fromUtf8("ckRightEarDisconnected"));
+<<<<<<< HEAD
+=======
+        ckRightEarDisconnected->setEnabled(false);
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
 
         verticalLayout_7->addWidget(ckRightEarDisconnected);
 
@@ -435,6 +535,10 @@ public:
         label_11->setText(QApplication::translate("MainWindow", "Connection", nullptr));
         rbExcellentConnection->setText(QApplication::translate("MainWindow", "Excellent", nullptr));
         rbOkayConnection->setText(QApplication::translate("MainWindow", "Okay", nullptr));
+<<<<<<< HEAD
+=======
+        rbNoConnection->setText(QApplication::translate("MainWindow", "No Connection", nullptr));
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
         label_12->setText(QApplication::translate("MainWindow", "Ear Connection", nullptr));
         ckLeftEarDisconnected->setText(QApplication::translate("MainWindow", "Left Ear Disconnected", nullptr));
         ckRightEarDisconnected->setText(QApplication::translate("MainWindow", "Right Ear Disconnected", nullptr));

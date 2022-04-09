@@ -1,6 +1,6 @@
 #include "Session.h"
 
-Session::Session(int i, int l, Type t) : initlength(l), intensity(i), type(t), length(0)
+Session::Session(int i, int l, Type t, Connection c) : initlength(l), intensity(i), type(t), length(0), connection(c)
 {
 }
 
@@ -29,4 +29,9 @@ int Session::getIntensity()
 Type Session::getType()
 {
     return type;
+}
+
+Connection Session::getConnection()
+{
+    return connection;
 }

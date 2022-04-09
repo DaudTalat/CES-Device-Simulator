@@ -60,6 +60,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnIntensityUp">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Up</string>
           </property>
@@ -67,6 +70,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnIntensityDown">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Down</string>
           </property>
@@ -106,6 +112,9 @@
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QRadioButton" name="rbAlphaOption">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>ALPHA</string>
         </property>
@@ -113,6 +122,9 @@
       </item>
       <item>
        <widget class="QRadioButton" name="rbThetaOption">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>THETA</string>
         </property>
@@ -123,6 +135,9 @@
       </item>
       <item>
        <widget class="QRadioButton" name="rbDeltaOption">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>DELTA</string>
         </property>
@@ -136,6 +151,9 @@
       </item>
       <item>
        <widget class="QRadioButton" name="rbMetOption">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>MET</string>
         </property>
@@ -170,6 +188,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="ckRecordSession">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -220,6 +241,9 @@
      <layout class="QHBoxLayout" name="horizontalLayout_6">
       <item>
        <widget class="QPushButton" name="btnStartSession">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Start Session</string>
         </property>
@@ -227,6 +251,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="btnEndSession">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>End Session</string>
         </property>
@@ -248,6 +275,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
          <widget class="QRadioButton" name="rbTwentyOption">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>20 minutes</string>
           </property>
@@ -255,6 +285,9 @@
         </item>
         <item>
          <widget class="QRadioButton" name="rbFortyFiveOption">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>45 minutes</string>
           </property>
@@ -266,6 +299,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <widget class="QRadioButton" name="rbCustomOption">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Custom</string>
           </property>
@@ -281,7 +317,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QSpinBox" name="spnMinutesInput"/>
+           <widget class="QSpinBox" name="spnMinutesInput">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -311,6 +351,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="btnPowerOn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="text">
           <string>On</string>
          </property>
@@ -318,6 +361,9 @@
        </item>
        <item>
         <widget class="QPushButton" name="btnPowerOff">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="text">
           <string>Off</string>
          </property>
@@ -351,7 +397,7 @@
       <x>370</x>
       <y>120</y>
       <width>219</width>
-      <height>311</height>
+      <height>396</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -364,6 +410,9 @@
      </item>
      <item>
       <widget class="QRadioButton" name="rbExcellentConnection">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Excellent</string>
        </property>
@@ -371,12 +420,28 @@
      </item>
      <item>
       <widget class="QRadioButton" name="rbOkayConnection">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Okay</string>
        </property>
       </widget>
      </item>
      <item>
+<<<<<<< HEAD
+=======
+      <widget class="QRadioButton" name="rbNoConnection">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>No Connection</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+>>>>>>> 0ff44febd403aa3d3ce3617ca9d3b63d581c78e7
       <widget class="Line" name="line_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -392,6 +457,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="ckLeftEarDisconnected">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Left Ear Disconnected</string>
        </property>
@@ -399,6 +467,9 @@
      </item>
      <item>
       <widget class="QCheckBox" name="ckRightEarDisconnected">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Right Ear Disconnected</string>
        </property>
