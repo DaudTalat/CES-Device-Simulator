@@ -20,8 +20,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void runSession();
-    void endSession();
+
     void saveData();
     void changeIntensity(int);
     void turnOn();
@@ -33,11 +32,13 @@ private:
     Ui::MainWindow *ui;
     Battery* battery = new Battery(100);
     int intensity = 0;
-    Session currentSession;
+    Session* currentSession;
     Session* sessions = new Session[50];
 
 private slots:
     void powerOn();
     void powerOff();
+    void runSession();
+    void endSession();
 };
 #endif // MAINWINDOW_H

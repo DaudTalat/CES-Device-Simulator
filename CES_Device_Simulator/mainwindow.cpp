@@ -8,13 +8,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     connect(ui->btnPowerOn, SIGNAL(released()), this, SLOT(powerOn()));
     connect(ui->btnPowerOff, SIGNAL(released()), this, SLOT(powerOff()));
+    connect(ui->btnStartSession, SIGNAL(released()), this, SLOT(runSession()));
+    connect(ui->btnEndSession, SIGNAL(released()), this, SLOT(endSession()));
 }
 
 
 void MainWindow::runSession(){
-
-    int intensity = ui->barIntensityBar->value();
-
+    currentSession = new Session(0, 0, MET, NONE);
+    int intensity = ui->barIntensity->value();
+    int length = 0;
     bool record = ui->ckRecordSession->isChecked();
 
     Type type;
@@ -27,6 +29,16 @@ void MainWindow::runSession(){
     }else if(ui->rbMetOption->isChecked()){
         type = MET;
     }
+
+    if(ui->rbTwentyOption->isChecked()){
+        length = 20;
+    }else if(ui->rbFortyFiveOption->isChecked()){
+        length = 45;
+    }
+
+    currentSession->setSessionFlag(true);
+    currentSession->setBattery(battery);
+    currentSession->startSession(length, intensity, record, type);
 
     Connection connection;
 
@@ -42,15 +54,11 @@ void MainWindow::runSession(){
     //Test connection
     testConnection(connection,false);
     //do while loop to run through session
-
     //
-
-
-
 }
 
 void MainWindow::endSession(){
-    stop = true;
+    currentSession->endSession();
 }
 
 bool MainWindow::testConnection(Connection connection, bool start){

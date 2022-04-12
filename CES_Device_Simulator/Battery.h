@@ -8,6 +8,8 @@ public:
     Battery(int);
     int batteryPercentage = 100;
     int decrement(int);
+    int getPowerLevel();
+    void setPowerLevel(int);
 private:
     int powerLevel;
 };
