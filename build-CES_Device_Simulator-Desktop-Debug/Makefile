@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = CES_Device_Simulator1.0.0
-DISTDIR = /home/student/Desktop/Project/CES-Device-Simulator/build-CES_Device_Simulator-Desktop-Debug/.tmp/CES_Device_Simulator1.0.0
+DISTDIR = /home/student/Desktop/Final_Project/CES-Device-Simulator/build-CES_Device_Simulator-Desktop-Debug/.tmp/CES_Device_Simulator1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so /usr/lib/x86_64-linux-gnu/libGL.so -lpthread   
@@ -56,12 +56,14 @@ SOURCES       = ../CES_Device_Simulator/Battery.cpp \
 		../CES_Device_Simulator/Records.cpp \
 		../CES_Device_Simulator/Session.cpp \
 		../CES_Device_Simulator/main.cpp \
-		../CES_Device_Simulator/mainwindow.cpp moc_mainwindow.cpp
+		../CES_Device_Simulator/mainwindow.cpp moc_Session.cpp \
+		moc_mainwindow.cpp
 OBJECTS       = Battery.o \
 		Records.o \
 		Session.o \
 		main.o \
 		mainwindow.o \
+		moc_Session.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -363,13 +365,22 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_Session.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
-moc_mainwindow.cpp: ../CES_Device_Simulator/mainwindow.h \
+	-$(DEL_FILE) moc_Session.cpp moc_mainwindow.cpp
+moc_Session.cpp: ../CES_Device_Simulator/Session.h \
+		../CES_Device_Simulator/Defs.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Desktop/Project/CES-Device-Simulator/build-CES_Device_Simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/Project/CES-Device-Simulator/CES_Device_Simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CES_Device_Simulator/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Desktop/Final_Project/CES-Device-Simulator/build-CES_Device_Simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/Final_Project/CES-Device-Simulator/CES_Device_Simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CES_Device_Simulator/Session.h -o moc_Session.cpp
+
+moc_mainwindow.cpp: ../CES_Device_Simulator/mainwindow.h \
+		../CES_Device_Simulator/Battery.h \
+		../CES_Device_Simulator/Session.h \
+		../CES_Device_Simulator/Defs.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Desktop/Final_Project/CES-Device-Simulator/build-CES_Device_Simulator-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/Final_Project/CES-Device-Simulator/CES_Device_Simulator -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../CES_Device_Simulator/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -397,18 +408,29 @@ Battery.o: ../CES_Device_Simulator/Battery.cpp ../CES_Device_Simulator/Battery.h
 
 Records.o: ../CES_Device_Simulator/Records.cpp ../CES_Device_Simulator/Records.h \
 		../CES_Device_Simulator/Session.h \
+		../CES_Device_Simulator/Defs.h \
 		../CES_Device_Simulator/Battery.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Records.o ../CES_Device_Simulator/Records.cpp
 
-Session.o: ../CES_Device_Simulator/Session.cpp ../CES_Device_Simulator/Session.h
+Session.o: ../CES_Device_Simulator/Session.cpp ../CES_Device_Simulator/Session.h \
+		../CES_Device_Simulator/Defs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Session.o ../CES_Device_Simulator/Session.cpp
 
-main.o: ../CES_Device_Simulator/main.cpp ../CES_Device_Simulator/mainwindow.h
+main.o: ../CES_Device_Simulator/main.cpp ../CES_Device_Simulator/mainwindow.h \
+		../CES_Device_Simulator/Battery.h \
+		../CES_Device_Simulator/Session.h \
+		../CES_Device_Simulator/Defs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../CES_Device_Simulator/main.cpp
 
 mainwindow.o: ../CES_Device_Simulator/mainwindow.cpp ../CES_Device_Simulator/mainwindow.h \
+		../CES_Device_Simulator/Battery.h \
+		../CES_Device_Simulator/Session.h \
+		../CES_Device_Simulator/Defs.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../CES_Device_Simulator/mainwindow.cpp
+
+moc_Session.o: moc_Session.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Session.o moc_Session.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
