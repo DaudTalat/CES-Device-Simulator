@@ -113,6 +113,11 @@ void MainWindow::powerOn()
 
 void MainWindow::powerOff()
 {
+    if (currentSession->sessionFlag)
+    {
+        currentSession->endSession();
+    }
+
     ui->btnPowerOff->setEnabled(false);
     ui->btnPowerOn->setEnabled(true);
     ui->btnEndSession->setEnabled(false);
