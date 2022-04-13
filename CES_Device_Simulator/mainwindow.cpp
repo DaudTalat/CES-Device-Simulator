@@ -5,16 +5,34 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    timer = new QTimer(this);
+    loop = new QEventLoop();
+    battery = new Battery(100);
     ui->setupUi(this);
     connect(ui->btnPowerOn, SIGNAL(released()), this, SLOT(powerOn()));
     connect(ui->btnPowerOff, SIGNAL(released()), this, SLOT(powerOff()));
     connect(ui->btnStartSession, SIGNAL(released()), this, SLOT(runSession()));
     connect(ui->btnEndSession, SIGNAL(released()), this, SLOT(endSession()));
+    connect(ui->btnIntensityUp, SIGNAL(released()), this, SLOT(intensityUp()));
+    connect(ui->btnIntensityDown, SIGNAL(released()), this, SLOT(intensityDown()));
 }
 
+void MainWindow::intensityDown()
+{
+    ui->barIntensity->setValue(ui->barIntensity->value() - 1);
+}
+
+void MainWindow::intensityUp()
+{
+    ui->barIntensity->setValue(ui->barIntensity->value() + 1);
+}
 
 void MainWindow::runSession(){
-    currentSession = new Session(0, 0, MET, NONE);
+
+    ui->btnEndSession->setEnabled(true);
+    ui->btnStartSession->setEnabled(false);
+
+
     int intensity = ui->barIntensity->value();
     int length = 0;
     bool record = ui->ckRecordSession->isChecked();
@@ -36,9 +54,13 @@ void MainWindow::runSession(){
         length = 45;
     }
 
+
+    //currentSession->setBattery(battery);
+    //currentSession->startSession(length, intensity, record, type);
+    currentSession = new Session(0, length, type, NONE);
     currentSession->setSessionFlag(true);
-    currentSession->setBattery(battery);
-    currentSession->startSession(length, intensity, record, type);
+
+    loopSession();
 
     Connection connection;
 
@@ -57,8 +79,44 @@ void MainWindow::runSession(){
     //
 }
 
+void MainWindow::loopSession()
+{
+    while(currentSession->getSessionFlag()){
+        qInfo("battery: %d", battery->getPowerLevel());
+        int depletionRate = 1;
+
+        connect(timer, &QTimer::timeout, loop, &QEventLoop::quit);
+        timer->setSingleShot(true);
+        timer->start(500);
+        loop->exec();
+        currentSession->incrementLength(1);
+        battery->decrement(depletionRate);
+
+        ui->barBatteryLevel->setValue(ui->barBatteryLevel->value() - depletionRate);
+
+        if(battery->getPowerLevel() == 3){
+            qInfo("Low battery");
+            qInfo("Ending session...");
+            return;
+        }
+        if(currentSession->getInitLength() == currentSession->getLength()){
+            currentSession->setSessionFlag(false);
+            qInfo("Finished Session...");
+            endSession();
+            return;
+        }
+    }
+}
+
 void MainWindow::endSession(){
-    currentSession->endSession();
+    ui->btnStartSession->setEnabled(true);
+    timer->stop();
+    loop->quit();
+    timer = new QTimer(this);
+    loop = new QEventLoop();
+    currentSession->setSessionFlag(false);
+    qInfo("Ending Session...");
+    //currentSession->endSession();
 }
 
 bool MainWindow::testConnection(Connection connection, bool start){
@@ -92,7 +150,6 @@ void MainWindow::powerOn()
 {
     ui->btnPowerOff->setEnabled(true);
     ui->btnPowerOn->setEnabled(false);
-    ui->btnEndSession->setEnabled(true);
     ui->btnIntensityDown->setEnabled(true);
     ui->btnIntensityUp->setEnabled(true);
     ui->btnStartSession->setEnabled(true);
@@ -102,18 +159,18 @@ void MainWindow::powerOn()
     ui->rbExcellentConnection->setEnabled(true);
     ui->rbFortyFiveOption->setEnabled(true);
     ui->rbMetOption->setEnabled(true);
-    ui->rbNoConnection->setEnabled(true);
     ui->rbOkayConnection->setEnabled(true);
     ui->rbThetaOption->setEnabled(true);
     ui->rbTwentyOption->setEnabled(true);
     ui->ckLeftEarDisconnected->setEnabled(true);
     ui->ckRightEarDisconnected->setEnabled(true);
     ui->ckRecordSession->setEnabled(true);
+    ui->spnMinutesInput->setEnabled(true);
 }
 
 void MainWindow::powerOff()
 {
-    if (currentSession->sessionFlag)
+    if (currentSession->getSessionFlag())
     {
         currentSession->endSession();
     }
@@ -130,11 +187,11 @@ void MainWindow::powerOff()
     ui->rbExcellentConnection->setEnabled(false);
     ui->rbFortyFiveOption->setEnabled(false);
     ui->rbMetOption->setEnabled(false);
-    ui->rbNoConnection->setEnabled(false);
     ui->rbOkayConnection->setEnabled(false);
     ui->rbThetaOption->setEnabled(false);
     ui->rbTwentyOption->setEnabled(false);
     ui->ckLeftEarDisconnected->setEnabled(false);
     ui->ckRightEarDisconnected->setEnabled(false);
     ui->ckRecordSession->setEnabled(false);
+    ui->spnMinutesInput->setEnabled(false);
 }

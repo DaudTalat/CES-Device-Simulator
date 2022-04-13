@@ -6,6 +6,9 @@
 #include "Session.h"
 #include "Defs.h"
 #include <QString>
+#include "QtGlobal"
+#include "QEventLoop"
+#include "QTimer"
 
 
 
@@ -29,16 +32,21 @@ public:
     bool stop = false;
 
 private:
+    void loopSession();
     Ui::MainWindow *ui;
-    Battery* battery = new Battery(100);
+    Battery* battery;
     int intensity = 0;
     Session* currentSession;
-    Session* sessions = new Session[50];
+    QEventLoop* loop;
+    QTimer* timer;
+    //Battery* battery;
 
 private slots:
     void powerOn();
     void powerOff();
     void runSession();
     void endSession();
+    void intensityUp();
+    void intensityDown();
 };
 #endif // MAINWINDOW_H
