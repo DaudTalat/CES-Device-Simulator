@@ -18,8 +18,11 @@ public:
     int incrementLength(int);
     int getLength();
     int getIntensity();
+    bool getSessionFlag();
+    int getInitLength();
+    //Battery* getBattery();
     void setSessionFlag(bool);
-    void setBattery(Battery*);
+    //void setBattery(Battery*);
     void startSession(int, int, bool, Type);
     void endSession();
     Type getType();
@@ -31,9 +34,9 @@ private:
     bool sessionFlag;
     Type type;
     Connection connection;
-    QEventLoop* loop;
-    QTimer* timer;
-    Battery* battery;
+   // QEventLoop* loop;
+    //QTimer* timer;
+    //Battery* battery;
 
 };
 

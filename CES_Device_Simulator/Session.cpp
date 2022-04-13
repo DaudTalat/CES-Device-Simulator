@@ -2,8 +2,8 @@
 
 Session::Session(int i, int l, Type t, Connection c) : initlength(l), length(0), intensity(i), type(t), connection(c)
 {
-    timer = new QTimer(this);
-    loop = new QEventLoop();
+    //timer = new QTimer(this);
+    //loop = new QEventLoop();
     sessionFlag = false;
 }
 
@@ -24,9 +24,19 @@ int Session::getLength()
     return length;
 }
 
+int Session::getInitLength()
+{
+    return initlength;
+}
+
 int Session::getIntensity()
 {
     return intensity;
+}
+
+bool Session::getSessionFlag()
+{
+    return sessionFlag;
 }
 
 Type Session::getType()
@@ -43,14 +53,19 @@ void Session::setSessionFlag(bool flag){
     sessionFlag = flag;
 }
 
-void Session::setBattery(Battery* b){
+/*void Session::setBattery(Battery* b){
     battery = b;
-}
+}*/
+
+/*Battery* Session::getBattery()
+{
+    return battery;
+}*/
 
 void Session::startSession(int sessionLength, int intensity, bool record, Type option){
-    int count = 0;
-    qInfo("%d",intensity);
-    qInfo("%d", record);
+    //int count = 0;
+    //qInfo("%d",intensity);
+    //qInfo("%d", record);
 
     if (option == ALPHA){
         type = ALPHA;
@@ -62,7 +77,7 @@ void Session::startSession(int sessionLength, int intensity, bool record, Type o
         type = MET;
     }
 
-    while(sessionFlag){
+   /* while(sessionFlag){
         qInfo("battery: %d", battery->getPowerLevel());
         int depletionRate = 1;
 
@@ -82,14 +97,14 @@ void Session::startSession(int sessionLength, int intensity, bool record, Type o
             qInfo("Finished Session...");
             return;
         }
-    }
+    }*/
 }
 
 void Session::endSession(){
-    timer->stop();
+    /*timer->stop();
     loop->quit();
     timer = new QTimer(this);
     loop = new QEventLoop();
     sessionFlag = false;
-    qInfo("Ending Session...");
+    qInfo("Ending Session...");*/
 }

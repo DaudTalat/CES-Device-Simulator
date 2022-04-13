@@ -82,7 +82,6 @@ public:
     QLabel *label_11;
     QRadioButton *rbExcellentConnection;
     QRadioButton *rbOkayConnection;
-    QRadioButton *rbNoConnection;
     QFrame *line_3;
     QLabel *label_12;
     QCheckBox *ckLeftEarDisconnected;
@@ -148,7 +147,9 @@ public:
 
         barIntensity = new QProgressBar(verticalLayoutWidget_3);
         barIntensity->setObjectName(QString::fromUtf8("barIntensity"));
-        barIntensity->setValue(24);
+        barIntensity->setMinimum(0);
+        barIntensity->setMaximum(8);
+        barIntensity->setValue(1);
 
         horizontalLayout_5->addWidget(barIntensity);
 
@@ -164,13 +165,14 @@ public:
         rbAlphaOption = new QRadioButton(horizontalLayoutWidget);
         rbAlphaOption->setObjectName(QString::fromUtf8("rbAlphaOption"));
         rbAlphaOption->setEnabled(false);
+        rbAlphaOption->setChecked(true);
 
         horizontalLayout_3->addWidget(rbAlphaOption);
 
         rbThetaOption = new QRadioButton(horizontalLayoutWidget);
         rbThetaOption->setObjectName(QString::fromUtf8("rbThetaOption"));
         rbThetaOption->setEnabled(false);
-        rbThetaOption->setChecked(true);
+        rbThetaOption->setChecked(false);
 
         horizontalLayout_3->addWidget(rbThetaOption);
 
@@ -237,6 +239,7 @@ public:
         rbTwentyOption = new QRadioButton(verticalLayoutWidget);
         rbTwentyOption->setObjectName(QString::fromUtf8("rbTwentyOption"));
         rbTwentyOption->setEnabled(false);
+        rbTwentyOption->setChecked(true);
 
         horizontalLayout_8->addWidget(rbTwentyOption);
 
@@ -313,7 +316,7 @@ public:
 
         barBatteryLevel = new QProgressBar(verticalLayoutWidget_5);
         barBatteryLevel->setObjectName(QString::fromUtf8("barBatteryLevel"));
-        barBatteryLevel->setValue(24);
+        barBatteryLevel->setValue(100);
 
         horizontalLayout_4->addWidget(barBatteryLevel);
 
@@ -334,21 +337,15 @@ public:
         rbExcellentConnection = new QRadioButton(layoutWidget);
         rbExcellentConnection->setObjectName(QString::fromUtf8("rbExcellentConnection"));
         rbExcellentConnection->setEnabled(false);
+        rbExcellentConnection->setChecked(true);
 
         verticalLayout_7->addWidget(rbExcellentConnection);
 
         rbOkayConnection = new QRadioButton(layoutWidget);
         rbOkayConnection->setObjectName(QString::fromUtf8("rbOkayConnection"));
-
         rbOkayConnection->setEnabled(false);
 
         verticalLayout_7->addWidget(rbOkayConnection);
-
-        rbNoConnection = new QRadioButton(layoutWidget);
-        rbNoConnection->setObjectName(QString::fromUtf8("rbNoConnection"));
-        rbNoConnection->setEnabled(false);
-
-        verticalLayout_7->addWidget(rbNoConnection);
 
         line_3 = new QFrame(layoutWidget);
         line_3->setObjectName(QString::fromUtf8("line_3"));
@@ -442,6 +439,7 @@ public:
         btnIntensityUp->setText(QApplication::translate("MainWindow", "Up", nullptr));
         btnIntensityDown->setText(QApplication::translate("MainWindow", "Down", nullptr));
         label_6->setText(QApplication::translate("MainWindow", "Intensity", nullptr));
+        barIntensity->setFormat(QApplication::translate("MainWindow", "%v", nullptr));
         rbAlphaOption->setText(QApplication::translate("MainWindow", "ALPHA", nullptr));
         rbThetaOption->setText(QApplication::translate("MainWindow", "THETA", nullptr));
         rbDeltaOption->setText(QApplication::translate("MainWindow", "DELTA", nullptr));
@@ -462,7 +460,6 @@ public:
         label_11->setText(QApplication::translate("MainWindow", "Connection", nullptr));
         rbExcellentConnection->setText(QApplication::translate("MainWindow", "Excellent", nullptr));
         rbOkayConnection->setText(QApplication::translate("MainWindow", "Okay", nullptr));
-        rbNoConnection->setText(QApplication::translate("MainWindow", "No Connection", nullptr));
         label_12->setText(QApplication::translate("MainWindow", "Ear Connection", nullptr));
         ckLeftEarDisconnected->setText(QApplication::translate("MainWindow", "Left Ear Disconnected", nullptr));
         ckRightEarDisconnected->setText(QApplication::translate("MainWindow", "Right Ear Disconnected", nullptr));

@@ -91,8 +91,17 @@
         </item>
         <item>
          <widget class="QProgressBar" name="barIntensity">
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>8</number>
+          </property>
           <property name="value">
-           <number>24</number>
+           <number>1</number>
+          </property>
+          <property name="format">
+           <string>%v</string>
           </property>
          </widget>
         </item>
@@ -118,6 +127,9 @@
         <property name="text">
          <string>ALPHA</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item>
@@ -129,7 +141,7 @@
          <string>THETA</string>
         </property>
         <property name="checked">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -281,6 +293,9 @@
           <property name="text">
            <string>20 minutes</string>
           </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
          </widget>
         </item>
         <item>
@@ -383,7 +398,7 @@
        <item>
         <widget class="QProgressBar" name="barBatteryLevel">
          <property name="value">
-          <number>24</number>
+          <number>100</number>
          </property>
         </widget>
        </item>
@@ -415,6 +430,9 @@
        </property>
        <property name="text">
         <string>Excellent</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
