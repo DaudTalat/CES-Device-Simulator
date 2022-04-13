@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     errorTimer = new QTimer(this);
     battery = new Battery(100);
     ui->setupUi(this);
+    currentSession = new Session();
     intensityMeter = new IntensityMeter(ui->barIntensity->value());
     connect(ui->btnPowerOn, SIGNAL(released()), this, SLOT(powerOn()));
     connect(ui->btnPowerOff, SIGNAL(released()), this, SLOT(powerOff()));
@@ -92,12 +93,11 @@ void MainWindow::loopSession()
             return;
         }
 
-        qInfo("battery: %d", battery->getPowerLevel());
         int isExcellent = ui->rbExcellentConnection->isChecked();
 
         float depletionRate = (intensityMeter->getIntensity()* 0.5);
         if(!isExcellent){
-            depletionRate += 5;
+            depletionRate += 0.5;
         }
 
         connect(timer, &QTimer::timeout, loop, &QEventLoop::quit);

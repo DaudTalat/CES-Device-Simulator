@@ -40,7 +40,7 @@ private:
     QTimer* timer;
     QTimer* errorTimer;
     IntensityMeter* intensityMeter;
-    //Battery* battery;
+    void updateIntensity();
 
 private slots:
     void powerOn();
@@ -49,6 +49,6 @@ private slots:
     void endSession();
     void intensityUp();
     void intensityDown();
-    void updateIntensity();
+
 };
 #endif // MAINWINDOW_H
