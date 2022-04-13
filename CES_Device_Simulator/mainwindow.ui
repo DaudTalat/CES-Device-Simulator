@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>619</width>
-    <height>483</height>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -412,7 +412,7 @@
       <x>370</x>
       <y>120</y>
       <width>219</width>
-      <height>396</height>
+      <height>311</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -535,14 +535,20 @@
        </item>
       </layout>
      </item>
-     <item>
-      <widget class="QLabel" name="lbStatusOutput">
-       <property name="text">
-        <string>Output: </string>
-       </property>
-      </widget>
-     </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="lbStatusOutput">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>440</y>
+      <width>571</width>
+      <height>39</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Output: </string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

@@ -19,6 +19,7 @@ SOURCES += \
     Battery.cpp \
     Records.cpp \
     Session.cpp \
+    intensitymeter.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -27,6 +28,7 @@ HEADERS += \
     Defs.h \
     Records.h \
     Session.h \
+    intensitymeter.h \
     mainwindow.h
 
 FORMS += \

@@ -7,8 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     timer = new QTimer(this);
     loop = new QEventLoop();
+    errorTimer = new QTimer(this);
     battery = new Battery(100);
     ui->setupUi(this);
+    intensityMeter = new IntensityMeter(ui->barIntensity->value());
     connect(ui->btnPowerOn, SIGNAL(released()), this, SLOT(powerOn()));
     connect(ui->btnPowerOff, SIGNAL(released()), this, SLOT(powerOff()));
     connect(ui->btnStartSession, SIGNAL(released()), this, SLOT(runSession()));
@@ -19,62 +21,63 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::intensityDown()
 {
-    ui->barIntensity->setValue(ui->barIntensity->value() - 1);
+    intensityMeter->setIntensity(intensityMeter->getIntensity() - 1);
+    updateIntensity();
 }
 
 void MainWindow::intensityUp()
 {
-    ui->barIntensity->setValue(ui->barIntensity->value() + 1);
+    intensityMeter->setIntensity(intensityMeter->getIntensity() + 1);
+    updateIntensity();
+}
+
+void MainWindow::updateIntensity(){
+    ui->barIntensity->setValue(intensityMeter->getIntensity());
 }
 
 void MainWindow::runSession(){
 
-    ui->btnEndSession->setEnabled(true);
-    ui->btnStartSession->setEnabled(false);
+
+    if(testConnection(true)){
+        ui->btnEndSession->setEnabled(true);
+        ui->btnStartSession->setEnabled(false);
 
 
-    int intensity = ui->barIntensity->value();
-    int length = 0;
-    bool record = ui->ckRecordSession->isChecked();
 
-    Type type;
-    if (ui->rbAlphaOption->isChecked()){
-        type = ALPHA;
-    }else if(ui->rbThetaOption->isChecked()){
-        type = THETA;
-    }else if(ui->rbDeltaOption->isChecked()){
-        type = DELTA;
-    }else if(ui->rbMetOption->isChecked()){
-        type = MET;
+        int length = 0;
+        bool record = ui->ckRecordSession->isChecked();
+
+        Type type;
+        if (ui->rbAlphaOption->isChecked()){
+            type = ALPHA;
+        }else if(ui->rbThetaOption->isChecked()){
+            type = THETA;
+        }else if(ui->rbDeltaOption->isChecked()){
+            type = DELTA;
+        }else if(ui->rbMetOption->isChecked()){
+            type = MET;
+        }
+
+        if(ui->rbTwentyOption->isChecked()){
+            length = 20;
+        }else if(ui->rbFortyFiveOption->isChecked()){
+            length = 45;
+        }
+
+
+        //currentSession->setBattery(battery);
+        //currentSession->startSession(length, intensity, record, type);
+        currentSession = new Session(intensityMeter->getIntensity(), length, type, NONE);
+        currentSession->setSessionFlag(true);
+        loopSession();
     }
 
-    if(ui->rbTwentyOption->isChecked()){
-        length = 20;
-    }else if(ui->rbFortyFiveOption->isChecked()){
-        length = 45;
-    }
 
 
-    //currentSession->setBattery(battery);
-    //currentSession->startSession(length, intensity, record, type);
-    currentSession = new Session(0, length, type, NONE);
-    currentSession->setSessionFlag(true);
-
-    loopSession();
-
-    Connection connection;
-
-    if(ui->ckLeftEarDisconnected->isChecked() || ui->ckRightEarDisconnected){
-        connection = NONE;
-    }else if(ui->rbOkayConnection->isChecked()){
-        connection = OKAY;
-    }else if(ui->rbExcellentConnection->isChecked()){
-        connection = EXCELLENT;
-    }
 
 
     //Test connection
-    testConnection(connection,false);
+
     //do while loop to run through session
     //
 }
@@ -82,8 +85,20 @@ void MainWindow::runSession(){
 void MainWindow::loopSession()
 {
     while(currentSession->getSessionFlag()){
+        if(!testConnection(false)){
+            currentSession->setSessionFlag(false);
+            qInfo("Lost Connection");
+            endSession();
+            return;
+        }
+
         qInfo("battery: %d", battery->getPowerLevel());
-        int depletionRate = 1;
+        int isExcellent = ui->rbExcellentConnection->isChecked();
+
+        float depletionRate = (intensityMeter->getIntensity()* 0.5);
+        if(!isExcellent){
+            depletionRate += 5;
+        }
 
         connect(timer, &QTimer::timeout, loop, &QEventLoop::quit);
         timer->setSingleShot(true);
@@ -92,7 +107,7 @@ void MainWindow::loopSession()
         currentSession->incrementLength(1);
         battery->decrement(depletionRate);
 
-        ui->barBatteryLevel->setValue(ui->barBatteryLevel->value() - depletionRate);
+        ui->barBatteryLevel->setValue(battery->getPowerLevel());
 
         if(battery->getPowerLevel() == 3){
             qInfo("Low battery");
@@ -110,35 +125,50 @@ void MainWindow::loopSession()
 
 void MainWindow::endSession(){
     ui->btnStartSession->setEnabled(true);
+    ui->btnEndSession->setEnabled(false);
     timer->stop();
     loop->quit();
     timer = new QTimer(this);
     loop = new QEventLoop();
+
     currentSession->setSessionFlag(false);
     qInfo("Ending Session...");
     //currentSession->endSession();
 }
 
-bool MainWindow::testConnection(Connection connection, bool start){
-    if (start){
-        // change lables colors and
-
-    }
-    QString output;
-    if(connection == NONE){
-
-        if(connection == NONE){
-            endSession();
-            output  = "Output: Lost Connection";
-        }else if(connection == OKAY){
-            output = "Output: Okay Connection";
+bool MainWindow::testConnection(bool start){
+    ui->lbRightEar->setStyleSheet("color : black");
+    ui->lbLeftEar->setStyleSheet("color : black");
+    if(ui->ckLeftEarDisconnected->isChecked() || ui->ckRightEarDisconnected->isChecked()){
+        QString output = "Output: ";
+        if(ui->ckRightEarDisconnected->isChecked() && !ui->ckLeftEarDisconnected->isChecked() ){
+            output.append("Right Ear ");
+            ui->lbRightEar->setStyleSheet("color: red");
+        }else if (ui->ckLeftEarDisconnected->isChecked() && !ui->ckRightEarDisconnected->isChecked()){
+            output.append("Left Ear ");
+            ui->lbLeftEar->setStyleSheet("color: red");
         }else{
-            output = "Output: Excellent Connection";
+            output.append("Left and Right Ears ");
+            ui->lbRightEar->setStyleSheet("color : red");
+            ui->lbLeftEar->setStyleSheet("color : red");
         }
-
+        if(start){
+            output.append("Disconnected, Session not started");
+            ui->lbStatusOutput->setText(output);
+            return false;
+        }
+        ui->lbStatusOutput->setText("Output: No connection, Session Stopped");
+        return false;
     }
-    ui->lbStatusOutput->setText(output);
-    return false;
+
+    Connection connection;
+
+    if(ui->rbOkayConnection->isChecked()){
+        ui->lbStatusOutput->setText("Output: Okay Connection");
+    }else if(ui->rbExcellentConnection->isChecked()){
+        ui->lbStatusOutput->setText("Output: Excellent Connection");
+    }
+    return true;
 }
 
 MainWindow::~MainWindow()
@@ -172,7 +202,7 @@ void MainWindow::powerOff()
 {
     if (currentSession->getSessionFlag())
     {
-        currentSession->endSession();
+        endSession();
     }
 
     ui->btnPowerOff->setEnabled(false);

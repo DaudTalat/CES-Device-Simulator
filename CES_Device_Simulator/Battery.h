@@ -6,12 +6,12 @@ class Battery
 {
 public:
     Battery(int);
-    int batteryPercentage = 100;
-    int decrement(int);
-    int getPowerLevel();
-    void setPowerLevel(int);
+    float batteryPercentage = 100;
+    float decrement(float);
+    float getPowerLevel();
+    void setPowerLevel(float);
 private:
-    int powerLevel;
+    float powerLevel;
 };
 
 #endif // BATTERY_H

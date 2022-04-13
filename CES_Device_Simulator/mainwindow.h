@@ -9,7 +9,7 @@
 #include "QtGlobal"
 #include "QEventLoop"
 #include "QTimer"
-
+#include "intensitymeter.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -28,17 +28,18 @@ public:
     void changeIntensity(int);
     void turnOn();
     void turnOff();
-    bool testConnection(Connection,bool);
+    bool testConnection(bool);
     bool stop = false;
 
 private:
     void loopSession();
     Ui::MainWindow *ui;
     Battery* battery;
-    int intensity = 0;
     Session* currentSession;
     QEventLoop* loop;
     QTimer* timer;
+    QTimer* errorTimer;
+    IntensityMeter* intensityMeter;
     //Battery* battery;
 
 private slots:
@@ -48,5 +49,6 @@ private slots:
     void endSession();
     void intensityUp();
     void intensityDown();
+    void updateIntensity();
 };
 #endif // MAINWINDOW_H

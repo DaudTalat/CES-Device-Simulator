@@ -101,7 +101,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(619, 483);
+        MainWindow->resize(619, 533);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         label_7 = new QLabel(centralwidget);
@@ -325,7 +325,7 @@ public:
 
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(370, 120, 219, 396));
+        layoutWidget->setGeometry(QRect(370, 120, 219, 311));
         verticalLayout_7 = new QVBoxLayout(layoutWidget);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
         verticalLayout_7->setContentsMargins(0, 0, 0, 0);
@@ -411,11 +411,9 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_7);
 
-        lbStatusOutput = new QLabel(layoutWidget);
+        lbStatusOutput = new QLabel(centralwidget);
         lbStatusOutput->setObjectName(QString::fromUtf8("lbStatusOutput"));
-
-        verticalLayout_7->addWidget(lbStatusOutput);
-
+        lbStatusOutput->setGeometry(QRect(20, 440, 571, 39));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
