@@ -44,7 +44,7 @@ public:
     QLabel *label_6;
     QProgressBar *barIntensity;
     QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *gpType;
     QRadioButton *rbAlphaOption;
     QRadioButton *rbThetaOption;
     QRadioButton *rbDeltaOption;
@@ -59,7 +59,7 @@ public:
     QPushButton *btnStartSession;
     QPushButton *btnEndSession;
     QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
+    QVBoxLayout *gbTime;
     QHBoxLayout *horizontalLayout_8;
     QRadioButton *rbTwentyOption;
     QRadioButton *rbFortyFiveOption;
@@ -159,22 +159,22 @@ public:
         horizontalLayoutWidget = new QWidget(groupBox);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
         horizontalLayoutWidget->setGeometry(QRect(30, 50, 261, 31));
-        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        gpType = new QHBoxLayout(horizontalLayoutWidget);
+        gpType->setObjectName(QString::fromUtf8("gpType"));
+        gpType->setContentsMargins(0, 0, 0, 0);
         rbAlphaOption = new QRadioButton(horizontalLayoutWidget);
         rbAlphaOption->setObjectName(QString::fromUtf8("rbAlphaOption"));
         rbAlphaOption->setEnabled(false);
         rbAlphaOption->setChecked(true);
 
-        horizontalLayout_3->addWidget(rbAlphaOption);
+        gpType->addWidget(rbAlphaOption);
 
         rbThetaOption = new QRadioButton(horizontalLayoutWidget);
         rbThetaOption->setObjectName(QString::fromUtf8("rbThetaOption"));
         rbThetaOption->setEnabled(false);
         rbThetaOption->setChecked(false);
 
-        horizontalLayout_3->addWidget(rbThetaOption);
+        gpType->addWidget(rbThetaOption);
 
         rbDeltaOption = new QRadioButton(horizontalLayoutWidget);
         rbDeltaOption->setObjectName(QString::fromUtf8("rbDeltaOption"));
@@ -182,13 +182,13 @@ public:
         rbDeltaOption->setChecked(false);
         rbDeltaOption->setAutoExclusive(true);
 
-        horizontalLayout_3->addWidget(rbDeltaOption);
+        gpType->addWidget(rbDeltaOption);
 
         rbMetOption = new QRadioButton(horizontalLayoutWidget);
         rbMetOption->setObjectName(QString::fromUtf8("rbMetOption"));
         rbMetOption->setEnabled(false);
 
-        horizontalLayout_3->addWidget(rbMetOption);
+        gpType->addWidget(rbMetOption);
 
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
@@ -231,9 +231,9 @@ public:
         verticalLayoutWidget = new QWidget(groupBox);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(30, 110, 261, 80));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        gbTime = new QVBoxLayout(verticalLayoutWidget);
+        gbTime->setObjectName(QString::fromUtf8("gbTime"));
+        gbTime->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         rbTwentyOption = new QRadioButton(verticalLayoutWidget);
@@ -250,7 +250,7 @@ public:
         horizontalLayout_8->addWidget(rbFortyFiveOption);
 
 
-        verticalLayout->addLayout(horizontalLayout_8);
+        gbTime->addLayout(horizontalLayout_8);
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
@@ -270,6 +270,7 @@ public:
         spnMinutesInput = new QSpinBox(verticalLayoutWidget);
         spnMinutesInput->setObjectName(QString::fromUtf8("spnMinutesInput"));
         spnMinutesInput->setEnabled(false);
+        spnMinutesInput->setMinimum(1);
 
         horizontalLayout_9->addWidget(spnMinutesInput);
 
@@ -277,7 +278,7 @@ public:
         horizontalLayout_10->addLayout(horizontalLayout_9);
 
 
-        verticalLayout->addLayout(horizontalLayout_10);
+        gbTime->addLayout(horizontalLayout_10);
 
         verticalLayoutWidget_5 = new QWidget(centralwidget);
         verticalLayoutWidget_5->setObjectName(QString::fromUtf8("verticalLayoutWidget_5"));

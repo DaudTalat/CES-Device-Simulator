@@ -22,8 +22,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::intensityDown()
 {
-    intensityMeter->setIntensity(intensityMeter->getIntensity() - 1);
-    updateIntensity();
+    if(intensityMeter->getIntensity() > 1){
+        intensityMeter->setIntensity(intensityMeter->getIntensity() - 1);
+        updateIntensity();
+    }
+
 }
 
 void MainWindow::intensityUp()
@@ -40,6 +43,14 @@ void MainWindow::runSession(){
     if(testConnection(true)){
         ui->btnEndSession->setEnabled(true);
         ui->btnStartSession->setEnabled(false);
+        ui->rbDeltaOption->setEnabled(false);
+        ui->rbMetOption->setEnabled(false);
+        ui->rbThetaOption->setEnabled(false);
+        ui->rbAlphaOption->setEnabled(false);
+        ui->rbTwentyOption->setEnabled(false);
+        ui->rbCustomOption->setEnabled(false);
+        ui->rbFortyFiveOption->setEnabled(false);
+        ui->spnMinutesInput->setEnabled(false);
 
         int length = 0;
         bool record = ui->ckRecordSession->isChecked();
@@ -61,6 +72,8 @@ void MainWindow::runSession(){
             length = 20;
         }else if(ui->rbFortyFiveOption->isChecked()){
             length = 45;
+        }else if(ui->rbCustomOption->isChecked()){
+            length = ui->spnMinutesInput->value();
         }
 
         currentSession = new Session(intensityMeter->getIntensity(), length, type, NONE);
@@ -77,12 +90,6 @@ void MainWindow::loopSession()
             while(!testConnection(false)){
                 int isExcellent = ui->rbExcellentConnection->isChecked();
 
-                float depletionRate = (intensityMeter->getIntensity()* 0.5);
-                depletionRate -= 0.2;
-
-                battery->decrement(depletionRate);
-                ui->barBatteryLevel->setValue(battery->getPowerLevel());
-
                 connect(timer, &QTimer::timeout, loop, &QEventLoop::quit);
                 timer->setSingleShot(true);
                 timer->start(500);
@@ -91,8 +98,8 @@ void MainWindow::loopSession()
 
                 if(count == 20){
                     currentSession->setSessionFlag(false);
-                    qInfo("Device Desiconnected For Too Long, Ending Session.");
-                    ui->lbStatusOutput->setText("Output: Device Desiconnected For Too Long, Ending Session.");
+                    qInfo("Device Disconnected For Too Long, Ending Session.");
+                    ui->lbStatusOutput->setText("Output: Device Disconnected For Too Long, Ending Session.");
                     endSession();
                     return;
                 }
@@ -133,6 +140,14 @@ void MainWindow::loopSession()
 void MainWindow::endSession(){
     ui->btnStartSession->setEnabled(true);
     ui->btnEndSession->setEnabled(false);
+    ui->rbDeltaOption->setEnabled(true);
+    ui->rbMetOption->setEnabled(true);
+    ui->rbThetaOption->setEnabled(true);
+    ui->rbAlphaOption->setEnabled(true);
+    ui->rbTwentyOption->setEnabled(true);
+    ui->rbCustomOption->setEnabled(true);
+    ui->rbFortyFiveOption->setEnabled(true);
+    ui->spnMinutesInput->setEnabled(true);
     timer->stop();
     loop->quit();
     timer = new QTimer(this);

@@ -118,7 +118,7 @@
        <height>31</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QHBoxLayout" name="gpType">
       <item>
        <widget class="QRadioButton" name="rbAlphaOption">
         <property name="enabled">
@@ -282,7 +282,7 @@
        <height>80</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="gbTime">
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
@@ -335,6 +335,9 @@
            <widget class="QSpinBox" name="spnMinutesInput">
             <property name="enabled">
              <bool>false</bool>
+            </property>
+            <property name="minimum">
+             <number>1</number>
             </property>
            </widget>
           </item>
