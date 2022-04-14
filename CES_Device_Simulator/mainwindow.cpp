@@ -72,8 +72,6 @@ void MainWindow::runSession(){
             length = 20;
         }else if(ui->rbFortyFiveOption->isChecked()){
             length = 45;
-        }else if(ui->rbCustomOption->isChecked()){
-            length = ui->spnMinutesInput->value();
         }
 
         currentSession = new Session(intensityMeter->getIntensity(), length, type, NONE);
