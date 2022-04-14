@@ -37,13 +37,9 @@ void MainWindow::updateIntensity(){
 }
 
 void MainWindow::runSession(){
-
-
     if(testConnection(true)){
         ui->btnEndSession->setEnabled(true);
         ui->btnStartSession->setEnabled(false);
-
-
 
         int length = 0;
         bool record = ui->ckRecordSession->isChecked();
@@ -59,28 +55,18 @@ void MainWindow::runSession(){
             type = MET;
         }
 
-        if(ui->rbTwentyOption->isChecked()){
+        if(ui->rbCustomOption->isChecked()){
+            length = ui->spnMinutesInput->value();
+        }else if(ui->rbTwentyOption->isChecked()){
             length = 20;
         }else if(ui->rbFortyFiveOption->isChecked()){
             length = 45;
         }
 
-
-        //currentSession->setBattery(battery);
-        //currentSession->startSession(length, intensity, record, type);
         currentSession = new Session(intensityMeter->getIntensity(), length, type, NONE);
         currentSession->setSessionFlag(true);
         loopSession();
     }
-
-
-
-
-
-    //Test connection
-
-    //do while loop to run through session
-    //
 }
 
 void MainWindow::loopSession()
@@ -117,7 +103,7 @@ void MainWindow::loopSession()
 
         float depletionRate = (intensityMeter->getIntensity()* 0.5);
         if(!isExcellent){
-            depletionRate += 0.5;
+            depletionRate -= 0.2;
         }
 
         connect(timer, &QTimer::timeout, loop, &QEventLoop::quit);
