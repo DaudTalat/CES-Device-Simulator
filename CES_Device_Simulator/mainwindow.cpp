@@ -87,10 +87,30 @@ void MainWindow::loopSession()
 {
     while(currentSession->getSessionFlag()){
         if(!testConnection(false)){
-            currentSession->setSessionFlag(false);
-            qInfo("Lost Connection");
-            endSession();
-            return;
+            int count = 0;
+            while(!testConnection(false)){
+                int isExcellent = ui->rbExcellentConnection->isChecked();
+
+                float depletionRate = (intensityMeter->getIntensity()* 0.5);
+                depletionRate -= 0.2;
+
+                battery->decrement(depletionRate);
+                ui->barBatteryLevel->setValue(battery->getPowerLevel());
+
+                connect(timer, &QTimer::timeout, loop, &QEventLoop::quit);
+                timer->setSingleShot(true);
+                timer->start(500);
+                loop->exec();
+                count++;
+
+                if(count == 20){
+                    currentSession->setSessionFlag(false);
+                    qInfo("Device Desiconnected For Too Long, Ending Session.");
+                    ui->lbStatusOutput->setText("Output: Device Desiconnected For Too Long, Ending Session.");
+                    endSession();
+                    return;
+                }
+            }
         }
 
         int isExcellent = ui->rbExcellentConnection->isChecked();
@@ -104,12 +124,13 @@ void MainWindow::loopSession()
         timer->setSingleShot(true);
         timer->start(500);
         loop->exec();
+
         currentSession->incrementLength(1);
         battery->decrement(depletionRate);
 
         ui->barBatteryLevel->setValue(battery->getPowerLevel());
 
-        if(battery->getPowerLevel() == 3){
+        if(battery->getPowerLevel() <= 3){
             qInfo("Low battery");
             qInfo("Ending session...");
             return;
@@ -157,7 +178,7 @@ bool MainWindow::testConnection(bool start){
             ui->lbStatusOutput->setText(output);
             return false;
         }
-        ui->lbStatusOutput->setText("Output: No connection, Session Stopped");
+        ui->lbStatusOutput->setText("Output: No connection, Session Paused");
         return false;
     }
 
