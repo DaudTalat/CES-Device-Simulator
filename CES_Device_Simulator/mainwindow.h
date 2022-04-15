@@ -10,6 +10,7 @@
 #include "QEventLoop"
 #include "QTimer"
 #include "intensitymeter.h"
+#include "Records.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -40,6 +41,7 @@ private:
     QTimer* timer;
     QTimer* errorTimer;
     IntensityMeter* intensityMeter;
+    Records record;
     void updateIntensity();
 
 private slots:
@@ -49,6 +51,7 @@ private slots:
     void endSession();
     void intensityUp();
     void intensityDown();
+    void recordSession();
 
 };
 #endif // MAINWINDOW_H
