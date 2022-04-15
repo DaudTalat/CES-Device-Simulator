@@ -10,10 +10,15 @@
 
 class Records
 {
+
+private:
+    bool recordActive = false;
+
 public:
     Records();
     void addSession(Session *);
-    void getSessions(); //may need to change from void to something else
+    void setRecordActive(bool);
+    bool getRecordActive();
 
 };
 

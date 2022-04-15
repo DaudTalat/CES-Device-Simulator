@@ -6,7 +6,7 @@ Records::Records()
 
 void Records::addSession(Session* s)
 {
-    QFile file("tmp.txt");
+    QFile file("TherapySessions.txt");
     if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
     {
         qInfo() << "Write Failed.";
@@ -14,7 +14,33 @@ void Records::addSession(Session* s)
 
     QTextStream stream(&file);
 
-    stream << "Session Length: " << s->getLength() << ", Session Intensity: " << s->getIntensity() << ", Session Type: " << s->getType() <<"\n";
+    if (s->getType() == 0)
+    {
+        stream << "Session Length: " << s->getLength() << " minutes, Session Intensity: " << s->getIntensity() << ", Session Type: MET" <<"\n";
+    }
+
+    else if (s->getType() == 1)
+    {
+        stream << "Session Length: " << s->getLength() << " minutes, Session Intensity: " << s->getIntensity() << ", Session Type: DELTA" <<"\n";
+    }
+
+    else if (s->getType() == 2)
+    {
+        stream << "Session Length: " << s->getLength() << " minutes, Session Intensity: " << s->getIntensity() << ", Session Type: THETA" <<"\n";
+    }
+
+    else if (s->getType() == 3)
+    {
+        stream << "Session Length: " << s->getLength() << " minutes, Session Intensity: " << s->getIntensity() << ", Session Type: THETA" <<"\n";
+    }
 
     file.close();
+}
+
+void Records::setRecordActive(bool value) {
+    recordActive = value;
+}
+
+bool Records::getRecordActive() {
+    return recordActive;
 }

@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->btnEndSession, SIGNAL(released()), this, SLOT(endSession()));
     connect(ui->btnIntensityUp, SIGNAL(released()), this, SLOT(intensityUp()));
     connect(ui->btnIntensityDown, SIGNAL(released()), this, SLOT(intensityDown()));
+    connect(ui->ckRecordSession, SIGNAL(released()), this, SLOT(recordSession()));
 }
 
 void MainWindow::intensityDown()
@@ -153,7 +154,11 @@ void MainWindow::endSession(){
 
     currentSession->setSessionFlag(false);
     qInfo("Ending Session...");
-    //currentSession->endSession();
+
+    if (record.getRecordActive() == true) {
+        qInfo("Logging Therapy Session...");
+        record.addSession(currentSession);
+    }
 }
 
 bool MainWindow::testConnection(bool start){
@@ -244,4 +249,8 @@ void MainWindow::powerOff()
     ui->ckRightEarDisconnected->setEnabled(false);
     ui->ckRecordSession->setEnabled(false);
     ui->spnMinutesInput->setEnabled(false);
+}
+
+void MainWindow::recordSession() {
+    record.setRecordActive(true);
 }
