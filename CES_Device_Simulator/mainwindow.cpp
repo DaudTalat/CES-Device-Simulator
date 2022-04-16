@@ -125,6 +125,7 @@ void MainWindow::loopSession()
         if(battery->getPowerLevel() <= 3){
             qInfo("Low battery");
             qInfo("Ending session...");
+            endSession();
             return;
         }
         if(currentSession->getInitLength() == currentSession->getLength()){
@@ -186,7 +187,6 @@ bool MainWindow::testConnection(bool start){
         return false;
     }
 
-    Connection connection;
 
     if(ui->rbOkayConnection->isChecked()){
         ui->lbStatusOutput->setText("Output: Okay Connection");

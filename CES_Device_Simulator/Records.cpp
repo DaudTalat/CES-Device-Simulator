@@ -6,7 +6,7 @@ Records::Records()
 
 void Records::addSession(Session* s)
 {
-    QFile file("TherapySessions.txt");
+    QFile file("../Records/TherapySessions.txt");
     if (!file.open(QIODevice::WriteOnly | QIODevice::Append))
     {
         qInfo() << "Write Failed.";
