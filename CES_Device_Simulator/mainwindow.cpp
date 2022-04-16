@@ -128,7 +128,7 @@ void MainWindow::loopSession()
             endSession();
             return;
         }
-        if(currentSession->getInitLength() == currentSession->getLength()){
+        if(currentSession->getLength() >= currentSession->getInitLength()){
             currentSession->setSessionFlag(false);
             qInfo("Finished Session...");
             endSession();
