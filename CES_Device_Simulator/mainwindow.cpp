@@ -252,5 +252,5 @@ void MainWindow::powerOff()
 }
 
 void MainWindow::recordSession() {
-    record.setRecordActive(true);
+    record.setRecordActive(!(record.getRecordActive()));
 }

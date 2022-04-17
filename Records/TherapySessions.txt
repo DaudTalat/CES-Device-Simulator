@@ -1,4 +1,0 @@
-Session Length: 1 minutes, Session Intensity: 1, Session Type: THETA
-Session Length: 1 minutes, Session Intensity: 4, Session Type: THETA
-Session Length: 1 minutes, Session Intensity: 2, Session Type: THETA
-Session Length: 2 minutes, Session Intensity: 2, Session Type: THETA
