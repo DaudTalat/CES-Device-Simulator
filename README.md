@@ -18,7 +18,7 @@ Tahbib Osman, Jordan Bayne, Muaadh Ali, Daud Talat
 ## Features 
 - Power on/ off -> Muaadh
 - Run session -> Jordan
-- Record session -> Duad
+- Record session -> Daud
 - Test Connetion -> Tahbib  
 - GUI -> Tahbib 
 
