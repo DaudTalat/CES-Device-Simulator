@@ -20,9 +20,9 @@
 ## Project Structure
 - CES_Device_Simulator
   - Documentation
-    - Use Cases
+    - Use Cases.pdf
     - UML.pdf
-    - Sequence Diagrams
+    - Sequence Diagrams.pdf
     - Traceability Matrix.pdf
 - build-CES_Device_Similator
 - Records
