@@ -18,14 +18,14 @@
   - Documentation
 
 ## Project Structure
-- CES_Device_Simulator
-  - Documentation
-    - Use Cases.pdf
-    - UML.pdf
-    - Sequence Diagrams.pdf
-    - Traceability Matrix.pdf
-- build-CES_Device_Similator
-- Records
+- CES_Device_Simulator: *QT Project*     
+- Documentation               
+  - Use Cases.pdf
+  - UML.pdf
+  - Sequence Diagrams.pdf
+  - Traceability Matrix.pdf
+- build-CES_Device_Similator: *Used for Debug*
+- Records: *Stores All Sessions Records*  
   - TherapySessions.txt
 
 
