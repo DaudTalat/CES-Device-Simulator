@@ -41,6 +41,10 @@ void MainWindow::updateIntensity(){
 }
 
 void MainWindow::runSession(){
+    if(battery->getPowerLevel() < 5){
+        return;
+    }
+    
     if(testConnection(true)){
         ui->btnEndSession->setEnabled(true);
         ui->btnStartSession->setEnabled(false);
