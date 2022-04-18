@@ -42,6 +42,7 @@ void MainWindow::updateIntensity(){
 
 void MainWindow::runSession(){
     if(battery->getPowerLevel() < 5){
+        ui->lbStatusOutput->setText("Output: Low Battery Level, Session Not Started.");
         return;
     }
     
@@ -126,7 +127,7 @@ void MainWindow::loopSession()
 
         ui->barBatteryLevel->setValue(battery->getPowerLevel());
 
-        if(battery->getPowerLevel() <= 3){
+        if(battery->getPowerLevel() <= 5){
             qInfo("Low battery");
             qInfo("Ending session...");
             endSession();
