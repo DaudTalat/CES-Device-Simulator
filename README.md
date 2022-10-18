@@ -11,6 +11,7 @@ This CES-Device-Simulator was based on the OASIS Pro CES (Cranial Electrotherapy
   - Program Logic
   - Documentation
 - Muaadh Ali
+  - UI
   - Program Logic
   - Documentation
 - Daud Talat
