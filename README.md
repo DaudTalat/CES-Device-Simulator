@@ -1,5 +1,5 @@
 # CES-Device-Simulator
-
+This CES-Device-Simulator was based on the OASIS Pro CES (Cranial Electrotherapy Stimulation) device. The OASIS Pro CES device was created to help patients with insomnia and anxity. More details on the OASIS PRO CES can be found on their [website](https://mindalive.com/products/oasis-pro#:~:text=The%20OASIS%20Pro%20is%20an%20innovative%2C%20high-quality%20Cranio-Electro,the%20head%20promotes%20good%20mental%20health%20and%20wellness.). Our project used the theory learned from COMP 3004B (Carleton University) and applied it to recreate the Oasis Pro CES in Qt using C++.
 
 ## Team 34 Members: 
 
